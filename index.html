@@ -1,12 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>krunal-ctrl</title>
+    <link rel="icon" type="img/svg" href="startup.svg" />
+    <meta name="author" content="Krunal Jethva" />
+    <meta name="keywords" content="Terminal Portfolio Javascript" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/style.css"
+    />
   </head>
   <body>
-    <h2>Hello world!</h2>
+    <div class="animation"></div>
+
+    <div class="container">
+      <div class="resize-drag">
+        <div class="top">
+          <p id="toped">My Works</p>
+          <img id="close" src="img/X.png" />
+        </div>
+        <div class="undrag">
+          <a class="linkTop" href="#">File</a>
+          <a class="linkTop" href="#">Edit</a>
+          <a class="linkTop" href="#">View</a>
+          <a class="linkTop" href="#">Help</a>
+
+          <!-- Open Page -->
+          <div class="prez">
+            <a
+              href="#"
+              class="icon btn-direction"
+              data-direction-project="p1"
+              data-top="Transformer-conversational-chat"
+            >
+              <img class="hover" src="img/chat_icon.png" alt="canvas" />
+              <img src="img/chat_icon.png" alt="canvas" />
+              <p>Transformer-chat</p>
+            </a>
+            <a
+              href="#"
+              class="icon btn-direction"
+              data-direction-project="p2"
+              data-top="krunal-ctrl"
+            >
+              <img
+                class="hover"
+                src="img/8/portfolioHover.png"
+                alt="morphing"
+              />
+              <img src="img/8/portfolio.png" alt="morphing" />
+              <p>krunal-ctrl</p>
+            </a>
+            <a
+              href="#"
+              class="icon btn-direction"
+              data-direction-project="p3"
+              data-top="Rajkot-Hackathon"
+            >
+              <img class="hover" src="img/hackathon.jpg" alt="portfolio" />
+              <img src="img/hackathon.jpg" alt="personal portfolio" />
+              <p>Rajkot-Hackathon</p>
+            </a>
+            <a
+              href="#"
+              class="icon btn-direction"
+              data-direction-project="p4"
+              data-top="youtube-transcript-summary"
+            >
+              <img
+                class="hover"
+                src="img/portfolioHover.png"
+                alt="Circle Gallery"
+              />
+              <img src="img/portfolio.png" alt="" />
+              <p>youtube-transcript-summary</p>
+            </a>
+          </div>
+          <!-- end page-->
+
+          <!-- Page one -->
+          <div class="prez prez-2" id="p1">
+            <a href="#" class="btn btn-back">Back</a>
+            <br />
+            <br />
+            <h3>Transformer-conversational-chat</h3>
+            <p>
+              "Chat that converts the message in your native language.With
+              functions like group chat, login, signin.
+
+              <br />
+              Uses googletrans for translation of messages, mongoDB as primary
+              database, flask as a server."
+
+              <br />
+              <a
+                href="https://github.com/krunal-ctrl/Transformer-conversational-chat"
+                >github</a
+              >
+            </p>
+            <br /><br />
+            <!-- First -->
+            <img src="img/chat/chat.gif" />
+            <p>
+              Check out my workings by click on try button and chat with your
+              friends, clients.
+            </p>
+            <br />
+            <a
+              href="http://transformation-chat.herokuapp.com/"
+              target="_blank"
+              class="btn"
+              >Try</a
+            ><br /><br /><br />
+          </div>
+          <!-- end page-->
+
+          <!-- Page two -->
+          <div class="prez prez-2" id="p2">
+            <a href="#" class="btn btn-back">Back</a>
+            <br />
+            <br />
+            <h3>krunal-ctrl</h3>
+            <p>
+              "This my github ReadMe page. I usually make changes to this repo
+              according to my latest interests and what i'm doing"
+            </p>
+            <br /><br />
+
+            <img src="img/github.PNG" />
+            <p>
+              <b> my github profile page</b> Feel free to fork, pull or suggest
+              anything you think might be useful
+            </p>
+            <br />
+            <a href="https://github.com/krunal-ctrl" target="_blank" class="btn"
+              >Try</a
+            ><br /><br />
+            <br /><br />
+          </div>
+          <!-- end page-->
+
+          <!-- Page tree -->
+          <div class="prez prez-2" id="p3">
+            <a href="#" class="btn btn-back">Back</a>
+            <br />
+            <br />
+            <h3>Rajkot-Hackathon</h3>
+            <p>
+              This is NLP base chat-bot<br />
+              We created this bot as a part of rajkot city hackathon.
+            </p>
+            <br /><br />
+            <img src="img/bot/bot.gif" />
+            <p>
+              <b> RASA bot</b> it uses rasa framework to implement the cases
+              that may be arise to local citizens of rajkot they can type query
+              and bot will respond with appropriate explanation and useful links
+            </p>
+            <br />
+            <p>
+              if you want to run it on local machine you can fork and try
+              checkout <a href="https://rasa.com/docs/">RASA docs</a> for
+              implementation
+            </p>
+            <a
+              href="https://github.com/krunal-ctrl/Rajkot_Hackathon"
+              target="_blank"
+              class="btn"
+              >Try</a
+            ><br /><br />
+            <br /><br />
+          </div>
+          <!-- end page-->
+
+          <!-- Page for -->
+          <div class="prez prez-2" id="p4">
+            <a href="#" class="btn btn-back">Back</a>
+            <br />
+            <br />
+            <h3>youtube-transcript</h3>
+            <p>Still working updates soon.</p>
+            <br />
+            <!-- <img src="img/Colormuseum.gif" /><br />
+            <br />
+            <a
+              href=""
+              target="_blank"
+              class="btn"
+              >Try</a
+            ><br /><br />
+            <br /> -->
+          </div>
+          <!-- end page-->
+
+          <div class="bottom">
+            <p class="b1">4 items, select a project</p>
+            <p class="b2"></p>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  -->
+    <div id="terminal">
+      <a id="before"></a>
+    </div>
+
+    <!-- Commander -->
+    <div id="cmd" onclick="$('setter').focus();">
+      <textarea
+        type="text"
+        id="setter"
+        onkeydown="writeit(this, event);moveIt(this.value.length, event)"
+        onkeyup="writeit(this, event)"
+        onkeypress="writeit(this, event);"
+        autofocus
+      ></textarea>
+      <div id="getter">
+        <span id="writer"></span><b class="cursor" id="cursor">█</b>
+      </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="js/interacth.js"></script>
+
+    <script src="js/text.js"></script>
+    <script src="js/caret.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
