@@ -45,7 +45,7 @@ help = [
 var download = "http://valentinsld.fr/Terminal/TerminalPortfolio.rar";
 // email
 var email =
-  '<a href="mailto:valentin.salaud@mmibordeaux.com">valentin.salaud@mmibordeaux.com</a>';
+  '<a href="mailto:krunaljethva90.com">krunaljethva90.com</a>';
 
 // Link to MyWebSite, Please don't change this
 var MyWebSite = "http://valentinsld.fr/";
@@ -54,7 +54,7 @@ about = [
   "<br>",
   "Hello there !",
   "My name is Krunal Jethva.",
-  "I'm computer engineer studnet from india",
+  "I'm computer engineer student from india",
   "Welcome to my website.",
   "Feel free to explore and add new feature or suggest me some.",
   "<br>",
