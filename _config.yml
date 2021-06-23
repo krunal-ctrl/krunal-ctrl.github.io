@@ -1,0 +1,44 @@
+# Site settings
+name: Krunal
+title: Krunal Jethva | Software Engineer
+description: computer engineering student trying to explore things around me
+url: https://krunal-ctrl.github.io/
+baseurl: ''
+email: krunaljethva90@@gmail.com
+cover: https://krunal-ctrl.github.io/img/og.png
+logo: https://krunal-ctrl.github.io/img/emojis/technologist.png
+resume: https://krunal-ctrl.github.io/resume.pdf
+social:
+  - title: email
+    url: krunaljethva90@gmail.com
+  - title: twitter
+    url: https://twitter.com/jethva_krunal
+  - title: instagram
+    url: https://instagram.com/krunal_jethva_14
+  - title: github
+    url: https://github.com/krunal-ctrl
+  - title: linkedin
+    url: www.linkedin.com/in/krunal-jethva
+
+
+# Build settings
+markdown: kramdown
+
+exclude:
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - '*.gemspec'
+  - 'README.md'
+  - 'node_modules'
+  - 'build'
+  - 'gulpfile.js'
+  - 'package.json'
+
+keep_files:
+  - 'CNAME'
+  - '.git'
+  - '.gitignore'
+
+plugins_dir:
+  - jekyll-minifier
+  - jekyll-sitemap

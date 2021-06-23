@@ -1,0 +1,18 @@
+<footer class="footer">
+  <div class="footer__copyright">
+    <span>Designed &amp; Developed by</span>
+    <div class="bottom">
+      <span><a class="underline-link" href="https://github.com/bchiang7">Brittany Chiang</a></span>
+      <img class="emoji" src="{{site.baseurl}}/img/emojis/rockon.png" alt="emoji">
+      <span>2018</span>
+    </div>
+  </div>
+  <div class="footer__links">
+    {% for link in site.social %}
+    <a href="{{link.url}}" target="_blank" title="{{link.title}}">
+      <span class="text">{{link.title}}</span>
+      <img src="{{site.baseurl}}/img/social/{{link.title}}.svg" alt="{{link.title}}">
+    </a>
+    {% endfor %}
+  </div>
+</footer>

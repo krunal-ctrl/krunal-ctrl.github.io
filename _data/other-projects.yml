@@ -1,0 +1,63 @@
+- name: Transformer-conversational-chat
+  url: http://transformation-chat.herokuapp.com/
+  code: https://github.com/krunal-ctrl/Transformer-conversational-chat
+  description: Its NLP base chat app that translates the message received from the other side in the client's native language. It also includes Login, signup activity.
+  used:
+    - thing: Python
+    - thing: Flask
+    - thing: MongoDB
+    - thing: googletrans
+    - thing: Jinja template
+
+- name: RMC Chatbot
+  url: https://github.com/krunal-ctrl/Rajkot_Hackathon
+  code: https://github.com/krunal-ctrl/Rajkot_Hackathon
+  description: a chatbot that will make user’s interaction with RMC’s website smooth and the whole experience fun.Chatbot will be able to respond to all user queries regarding any service provided by RMC
+  used:
+    - thing: Python
+    - thing: RASA
+    - thing: AWS
+    - thing: Docker
+    - thing: NLP
+    - thing: YML
+
+- name: YouTube-Transcript-Summarizer
+  url: https://github.com/krunal-ctrl/YouTube-Transcript-Summarizer
+  code: https://github.com/krunal-ctrl/YouTube-Transcript-Summarizer
+  description: Chrome Extension which will make a request to a backend REST API where it will perform NLP and respond with a summarized version of a YouTube transcript.
+  used:
+    - thing: Python
+    - thing: HTML
+    - thing: SCSS
+    - thing: JavaScript
+    - thing: API
+
+- name: Ecommerce
+  url: https://github.com/krunal-ctrl/ecommerce
+  code: https://github.com/krunal-ctrl/ecommerce
+  description: making an Ecommerce website using MEARN stack technology
+  used:
+    - thing: MongoDB
+    - thing: Express
+    - thing: React
+    - thing: Node
+
+- name: Personal Website
+  url: https://bchiang7.github.io/v2
+  code: https://github.com/bchiang7/v2
+  description: my personal website. Designed and developed by <a class="underline-link" href="https://github.com/bchiang7">Brittany Chiang</a> Modified for my own personal website.
+  used:
+    - thing: Jekyll
+    - thing: Handlebars
+    - thing: SCSS
+    - thing: JavaScript
+    - thing: Github Pages
+
+- name: Football-Score-Counter
+  url: https://github.com/krunal-ctrl/Football-Score-Counter
+  code: https://github.com/krunal-ctrl/Football-Score-Counter
+  description:
+    this is my first android app. this app does not include all score counting methods that are there in the real word because i am beginner in this field of making th e android apps
+  used:
+    - thing: Android
+    - thing: JAVA

@@ -1,0 +1,28 @@
+languages:
+  - item: Python
+  - item: Java
+  - item: JavaScript
+  - item: HTML
+  - item: CSS
+  - item: SQL
+  - item: prolog (learning)
+
+frameworks:
+  - item: Flask
+  - item: RASA
+  - item: Node
+  - item: Express
+  - item: Django
+  - item: React
+  - item: JSP (JavaServer Pages)
+  - item: Hibernate
+
+
+tools:
+  - item: Bash
+  - item: Git & Github
+  - item: Chrome DevTools
+  - item: Postman
+  - item: MongoDB
+  - item: Docker
+  - item: GCP 
