@@ -43,8 +43,8 @@
     - thing: Node
 
 - name: Personal Website
-  url: https://bchiang7.github.io/v2
-  code: https://github.com/bchiang7/v2
+  url: https://krunal-ctrl.github.io/
+  code: https://github.com/krunal-ctrl/krunal-ctrl.github.io
   description: my personal website. Designed and developed by <a class="underline-link" href="https://github.com/bchiang7">Brittany Chiang</a> Modified for my own personal website.
   used:
     - thing: Jekyll
