@@ -1,3 +1,21 @@
+- name: POS for Restaurant
+  description: A robust Point of Sale (POS) system tailored for restaurants, enabling efficient order management, real-time inventory tracking, and insightful reporting. This solution streamlines daily operations, enhances customer service, and provides valuable analytics to optimize restaurant performance.
+  used:
+    - thing: .NET
+    - thing: Angular
+
+- name: Printer Management Dashboard
+  description: A centralized dashboard designed to manage printers within POS systems, offering real-time monitoring, configuration, and maintenance. This solution ensures seamless printing operations, reduces downtime, and enhances the overall efficiency of POS systems in various business environments.
+  used:
+    - thing: .NET
+    - thing: Angular
+
+- name: Audio Recording Module for POS
+  description: A Python-based audio recording module designed for integration with POS systems, enabling seamless capture and storage of audio interactions. This solution supports high-quality audio recording, playback, and management, enhancing customer service and providing valuable insights for businesses.
+  used:
+    - thing: Python
+    - thing: Flask
+
 - name: Transformer-conversational-chat
   url: http://transformation-chat.herokuapp.com/
   code: https://github.com/krunal-ctrl/Transformer-conversational-chat
