@@ -6,23 +6,24 @@ languages:
   - item: HTML
   - item: CSS
   - item: SQL
-  - item: prolog (learning)
 
 frameworks:
   - item: .NET WebAPI
+  - item: Angular
   - item: EntityFrameWork
   - item: Flask
   - item: RASA
   - item: Node
   - item: Express
   - item: Django
-  - item: React
   - item: JSP (JavaServer Pages)
   - item: Hibernate
 
 
 tools:
   - item: Bash
+  - item: Visual Studio
+  - item: Jetbrains Rider
   - item: Git & Github
   - item: Chrome DevTools
   - item: Postman
