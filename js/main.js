@@ -1,77 +1,79 @@
-$(function() {
-  const d = new Date();
-  const hours = d.getHours();
-  const night = hours >= 19 || hours <= 7; // between 7pm and 7am
-  const body = document.querySelector('body');
-  const toggle = document.getElementById('toggle');
-  const input = document.getElementById('switch');
+// Mobile nav toggle, scroll reveal, and animated stat counters. No dependencies.
+(function () {
+  var reduceMotion = window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (night) {
-    input.checked = true;
-    body.classList.add('night');
+  // --- Mobile nav ---
+  var toggle = document.querySelector('.nav-toggle');
+  var links = document.querySelector('.primary-nav');
+  if (toggle && links) {
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') links.classList.remove('open');
+    });
   }
 
-  toggle.addEventListener('click', function() {
-    const isChecked = input.checked;
-    if (isChecked) {
-      body.classList.remove('night');
-    } else {
-      body.classList.add('night');
+  // --- Stat counters ---
+  // For [data-since="YYYY-MM-DD"], derive completed whole years (auto-updates over time).
+  function completedYears(iso) {
+    var start = new Date(iso);
+    var now = new Date();
+    var y = now.getFullYear() - start.getFullYear();
+    var m = now.getMonth() - start.getMonth();
+    if (m < 0 || (m === 0 && now.getDate() < start.getDate())) y -= 1;
+    return Math.max(0, y);
+  }
+  function render(el, value) {
+    el.textContent = (el.dataset.prefix || '') + value + (el.dataset.suffix || '');
+  }
+  // Resolve targets up front so the years value is correct even without animation.
+  var counters = [].slice.call(document.querySelectorAll('[data-count], [data-since]'));
+  counters.forEach(function (el) {
+    el.dataset.count = el.dataset.since
+      ? String(completedYears(el.dataset.since))
+      : el.dataset.count;
+    if (reduceMotion) render(el, +el.dataset.count);
+  });
+  // Inline prose years (no animation, set immediately).
+  [].forEach.call(document.querySelectorAll('[data-years]'), function (el) {
+    el.textContent = String(completedYears(el.dataset.years));
+  });
+  function countUp(el) {
+    if (reduceMotion || el.dataset.done) { return; }
+    el.dataset.done = '1';
+    var target = +el.dataset.count;
+    var duration = 1100;
+    var startTime = null;
+    function step(ts) {
+      if (startTime === null) startTime = ts;
+      var p = Math.min((ts - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      render(el, Math.round(eased * target));
+      if (p < 1) requestAnimationFrame(step);
     }
-  });
-
-  const introHeight = document.querySelector('.intro').offsetHeight;
-  const topButton = document.getElementById('top-button');
-  const $topButton = $('#top-button');
-
-  window.addEventListener(
-    'scroll',
-    function() {
-      if (window.scrollY > introHeight) {
-        $topButton.fadeIn();
-      } else {
-        $topButton.fadeOut();
-      }
-    },
-    false
-  );
-
-  topButton.addEventListener('click', function() {
-    $('html, body').animate({ scrollTop: 0 }, 500);
-  });
-
-  const hand = document.querySelector('.emoji.wave-hand');
-
-  function waveOnLoad() {
-    hand.classList.add('wave');
-    setTimeout(function() {
-      hand.classList.remove('wave');
-    }, 2000);
+    requestAnimationFrame(step);
   }
 
-  setTimeout(function() {
-    waveOnLoad();
-  }, 1000);
-
-  hand.addEventListener('mouseover', function() {
-    hand.classList.add('wave');
-  });
-
-  hand.addEventListener('mouseout', function() {
-    hand.classList.remove('wave');
-  });
-
-  window.sr = ScrollReveal({
-    reset: false,
-    duration: 600,
-    easing: 'cubic-bezier(.694,0,.335,1)',
-    scale: 1,
-    viewFactor: 0.3,
-  });
-
-  sr.reveal('.background');
-  sr.reveal('.skills');
-  sr.reveal('.experience', { viewFactor: 0.2 });
-  sr.reveal('.featured-projects', { viewFactor: 0.1 });
-  sr.reveal('.other-projects', { viewFactor: 0.05 });
-});
+  // --- Scroll reveal (+ trigger counters when their tile appears) ---
+  function activate(el) {
+    el.classList.add('in');
+    [].forEach.call(el.querySelectorAll('[data-count]'), countUp);
+  }
+  var reveals = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || !reveals.length) {
+    reveals.forEach(activate);
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        activate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(function (el) { io.observe(el); });
+})();
