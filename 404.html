@@ -1,10 +1,45 @@
----
-layout: not_found
-title: 404
-permalink: /404.html
----
-{% include switch.html %}
-<div class="name">Krunal Jethva</div>
-<img src="{{site.baseurl}}/img/emojis/thinking-face.png" alt="">
-<h1>Hmmm...</h1>
-<h2>Looks like there's nothing here.<br>Maybe you should go back <a href="{{site.url}}">home</a>.</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found - Krunal Jethva</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="alternate icon" href="img/emojis/technologist.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Primary">
+      <a class="brand" href="index.html">
+        <span class="brand-first">Krunal</span>
+        <span class="brand-mono" aria-hidden="true">
+          <svg class="hand-k" width="22" height="26" viewBox="0 0 22 26" fill="none"><path d="M5 2.5C4.2 8 5.6 15 4.9 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 13C9 10 12.5 6.5 17 2.8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12.5C10 15 14 19 18 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-last">Jethva</span>
+      </a>
+      <div class="primary-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+        </ul>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" style="text-align: center;">
+      <div class="wrap">
+        <h1 class="gradient-text" style="font-size: clamp(4rem, 18vw, 9rem);">404</h1>
+        <p class="lead" style="margin: 0 auto 28px;">This page wandered off. Let's get you back on track.</p>
+        <a class="btn btn-primary" href="index.html">← Back home</a>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+</html>
