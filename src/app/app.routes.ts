@@ -15,5 +15,8 @@ export const routes: Routes = [
       { path: 'projects', component: Projects, title: 'Projects - Krunal Jethva' },
     ],
   },
+  // A concrete path so the static prerenderer can generate it (wildcard routes aren't
+  // enumerable for SSG); the build copies its output to browser/404.html for GitHub Pages.
+  { path: '404', component: NotFound, title: 'Page not found - Krunal Jethva' },
   { path: '**', component: NotFound, title: 'Page not found - Krunal Jethva' },
 ];
