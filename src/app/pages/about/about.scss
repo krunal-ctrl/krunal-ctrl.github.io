@@ -4,6 +4,10 @@
 .prose strong { color: var(--ink); font-weight: 500; }
 .prose .accent { color: var(--accent-ink); font-weight: 500; }
 
+/* ---------- Toolbox + Education grid ---------- */
+/* Cards shouldn't stretch to match each other's height - Education has far less content. */
+.toolbox-grid { align-items: start; }
+
 /* ---------- Toolbox skill categories ---------- */
 .skill-category {
   font-size: 0.78rem;
