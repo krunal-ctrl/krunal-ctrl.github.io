@@ -1,0 +1,17 @@
+/* ---------- Prose ---------- */
+.prose { max-width: 680px; }
+.prose p { color: var(--ink-soft); font-size: 1.08rem; }
+.prose strong { color: var(--ink); font-weight: 500; }
+.prose .accent { color: var(--accent-ink); font-weight: 500; }
+
+/* ---------- Toolbox skill categories ---------- */
+.skill-category {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 16px 0 8px;
+}
+.skill-category:first-of-type { margin-top: 0; }
+.tags { margin-top: 0; margin-bottom: 4px; }

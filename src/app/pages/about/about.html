@@ -1,0 +1,82 @@
+<!-- Intro -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">About me</p>
+      <h1 class="gradient-text">Nice to meet you.</h1>
+      <p class="lead">I'm a software engineer based in Pune, India, working with global teams on the systems people quietly depend on every day.</p>
+    </div>
+    <div class="hero-portrait">
+      <img src="img/headshot.jpg" alt="Portrait of Krunal Jethva" />
+    </div>
+  </div>
+</section>
+
+<!-- Story -->
+<section style="padding-top: 24px;">
+  <div class="wrap prose">
+    <p>I started out building an airline reservation system as a student - a .NET API and an Angular front end, with a graph algorithm to stitch together multi-city flight routes. That mix of <strong>solid backend thinking</strong> and a <strong>UI people actually enjoy using</strong> has stuck with me ever since.</p>
+    <p>Over the last <span class="accent">{{ careerStartIso | yearsSince }}+ years</span> I've architected enterprise solutions across the .NET and Angular ecosystems - restaurant POS platforms spanning multiple locations, real-time messaging for field operations, secure authentication systems, and a globally-used document-management product. I care a lot about the unglamorous things: shaving seconds off load times, killing redundant API calls, and choosing architecture that lets a team move quickly without tripping over itself.</p>
+    <p>I also like making other engineers better. I've mentored <span class="accent">7–10 junior developers</span>, championed code review and TDD, and organised company-wide hackathons with up to a hundred people in the room. The best software is a team sport.</p>
+    <p>When I'm not deep in C# or TypeScript, I'm usually exploring something new in cloud and distributed systems - the parts of engineering that feel a bit like solving a good puzzle.</p>
+  </div>
+</section>
+
+<!-- Experience -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">Experience</p>
+      <h2>The journey so far.</h2>
+    </div>
+    <div class="timeline">
+      @for (exp of experience; track exp.company + exp.role) {
+        <div class="t-item reveal" appReveal>
+          <div class="t-role">{{ exp.role }} · <a [href]="exp.companyUrl" target="_blank" rel="noopener">{{ exp.company }}</a></div>
+          <div class="t-meta">{{ exp.dateRange }} · {{ exp.location }}</div>
+          <ul>
+            @for (bullet of exp.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Toolbox + Education -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div class="card reveal" appReveal>
+        <h3>🧰 Toolbox</h3>
+        <p style="margin-bottom: 16px;">The languages and tools I reach for most.</p>
+        @for (group of skills; track group.category) {
+          <p class="skill-category">{{ group.category }}</p>
+          <div class="tags">
+            @for (skill of group.skills; track skill) {
+              <span class="tag">{{ skill }}</span>
+            }
+          </div>
+        }
+      </div>
+      <div class="card reveal" appReveal>
+        <h3>🎓 Education &amp; certs</h3>
+        <p style="margin-bottom: 4px;"><strong>B.E. Computer Engineering</strong><br />V.V.P. Engineering College · CGPA 9.26 / 10<br /><span style="color: var(--ink-faint);">Sep 2018 – May 2022 · Rajkot, Gujarat</span></p>
+        <p style="margin-bottom: 0;"><strong>Microsoft Certified: Azure Fundamentals (AZ-900)</strong><br /><span style="color: var(--ink-faint);">Microsoft · 2026</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="band reveal" appReveal>
+      <h2>Want the details?</h2>
+      <p>Grab the full résumé, or browse a few things I've built.</p>
+      <a class="btn btn-ghost" routerLink="/projects">View projects →</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+@switch (tile.illustration) {
+  @case ('backend') {
+    <svg class="bento-art" viewBox="0 0 220 130" fill="none" aria-hidden="true">
+      <g stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="48" cy="32" rx="28" ry="10" fill="rgba(255,255,255,0.18)"/>
+        <path d="M20 32 V84 C20 90 33 96 48 96 C63 96 76 90 76 84 V32"/>
+        <path d="M20 58 C20 64 33 70 48 70 C63 70 76 64 76 58"/>
+        <path d="M76 48 H118"/>
+        <path d="M76 80 H118"/>
+        <rect x="118" y="33" width="80" height="30" rx="8" fill="rgba(255,255,255,0.18)"/>
+        <rect x="118" y="73" width="80" height="30" rx="8" fill="rgba(255,255,255,0.18)"/>
+        <circle cx="136" cy="48" r="4" fill="#fff"/>
+        <circle cx="136" cy="88" r="4" fill="#fff"/>
+        <path d="M150 48 H184" stroke-opacity="0.6"/>
+        <path d="M150 88 H184" stroke-opacity="0.6"/>
+      </g>
+    </svg>
+  }
+  @case ('frontend') {
+    <svg class="bento-art" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+      <rect x="14" y="16" width="192" height="120" rx="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <line x1="14" y1="44" x2="206" y2="44" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="30" cy="30" r="4" fill="var(--pink)"/>
+      <circle cx="44" cy="30" r="4" fill="var(--teal)"/>
+      <circle cx="58" cy="30" r="4" fill="var(--primary)"/>
+      <rect x="26" y="58" width="40" height="64" rx="6" fill="var(--bg-soft)"/>
+      <rect x="78" y="58" width="116" height="20" rx="5" fill="var(--primary)"/>
+      <line x1="78" y1="92" x2="178" y2="92" stroke="var(--border)" stroke-width="6" stroke-linecap="round"/>
+      <line x1="78" y1="106" x2="150" y2="106" stroke="var(--border)" stroke-width="6" stroke-linecap="round"/>
+      <rect x="78" y="118" width="50" height="14" rx="7" fill="var(--pink)"/>
+    </svg>
+  }
+  @case ('arch') {
+    <svg class="bento-art" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+      <g stroke="var(--border)" stroke-width="3">
+        <path d="M110 75 L48 38"/>
+        <path d="M110 75 L172 38"/>
+        <path d="M110 75 L48 112"/>
+        <path d="M110 75 L172 112"/>
+      </g>
+      <circle cx="48" cy="38" r="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="172" cy="38" r="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="48" cy="112" r="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="172" cy="112" r="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="48" cy="38" r="4" fill="var(--pink)"/>
+      <circle cx="172" cy="38" r="4" fill="var(--teal)"/>
+      <circle cx="48" cy="112" r="4" fill="var(--teal)"/>
+      <circle cx="172" cy="112" r="4" fill="var(--pink)"/>
+      <circle cx="110" cy="75" r="18" fill="var(--primary)"/>
+      <circle cx="110" cy="75" r="6" fill="#fff"/>
+    </svg>
+  }
+  @default {
+    @if (tile.emoji) {
+      <span class="watermark" aria-hidden="true">{{ tile.emoji }}</span>
+      <div class="ico">{{ tile.emoji }}</div>
+    }
+  }
+}
+@if (tile.eyebrow) {
+  <p class="eyebrow">{{ tile.eyebrow }}</p>
+}
+<h3>{{ tile.title }}</h3>
+<p>{{ tile.description }}</p>
+@if (tile.tags) {
+  <div class="tags">
+    @for (tag of tile.tags; track tag) {
+      <span class="tag">{{ tag }}</span>
+    }
+  </div>
+}

@@ -1,0 +1,96 @@
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Software Engineer · .NET · Angular · Cloud</p>
+      <h1>Hi, I'm Krunal <span class="wave">👋</span><br />I build software that <span class="gradient-text">feels fast.</span></h1>
+      <p class="lead">For {{ careerStartIso | yearsSince }}+ years I've shipped mission-critical .NET and Angular apps for global clients - the kind that stay quick, reliable, and pleasant to use under real-world load.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" routerLink="/projects">See my work →</a>
+        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img src="img/headshot.jpg" alt="Portrait of Krunal Jethva" />
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats-section">
+  <div class="wrap">
+    <div class="stats">
+      @for (stat of stats; track stat.label) {
+        <app-stat-counter class="reveal" appReveal [stat]="stat" />
+      }
+    </div>
+  </div>
+</section>
+
+<!-- What I do -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">What I do</p>
+      <h2>Full-stack, end to end.</h2>
+      <p>I'm happiest moving across the whole stack - designing the API, the data layer, and the interface that sits on top of them.</p>
+    </div>
+    <div class="bento">
+      @for (tile of bentoTiles; track tile.id) {
+        <app-bento-tile class="reveal" appReveal [tile]="tile" />
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Where I've worked (brief) -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">Recent work</p>
+      <h2>Where I've been building.</h2>
+    </div>
+    <div class="timeline">
+      @for (exp of recentExperience; track exp.company + exp.role) {
+        <div class="t-item reveal" appReveal>
+          <div class="t-role">{{ exp.role }} · <a [href]="exp.companyUrl" target="_blank" rel="noopener">{{ exp.company }}</a></div>
+          <div class="t-meta">{{ exp.dateRange }} · {{ exp.location }}</div>
+          <ul>
+            @for (bullet of exp.briefBullets ?? exp.bullets.slice(0, 2); track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+    <p style="margin-top: 28px;"><a routerLink="/about">Read the full story →</a></p>
+  </div>
+</section>
+
+<!-- Selected projects -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">Selected projects</p>
+      <h2>A few things I've built.</h2>
+      <p>From multi-location POS platforms to real-time systems - here's a taste.</p>
+    </div>
+    <div class="proj-grid">
+      @for (project of featuredProjects; track project.title) {
+        <app-project-card class="reveal" appReveal [project]="project" />
+      }
+    </div>
+    <p style="margin-top: 28px;"><a routerLink="/projects">See all projects →</a></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="band reveal" appReveal>
+      <h2>Let's build something solid.</h2>
+      <p>I'm always glad to talk about backend systems, Angular, or interesting engineering problems.</p>
+      <a class="btn btn-ghost" href="mailto:krunaljethva90@gmail.com">Get in touch →</a>
+    </div>
+  </div>
+</section>

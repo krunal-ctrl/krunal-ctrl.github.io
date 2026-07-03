@@ -1,0 +1,27 @@
+<section class="hero projects-hero">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h1>Things I've <span class="gradient-text">built.</span></h1>
+    <p class="lead projects-lead">A selection of work spanning distributed backends, real-time systems and full-stack products. Some are client work; some are for the joy of it.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="proj-grid cols-3">
+      @for (project of projects; track project.title) {
+        <app-project-card class="reveal" appReveal [project]="project" />
+      }
+    </div>
+  </div>
+</section>
+
+<section style="padding-top: 0;">
+  <div class="wrap">
+    <div class="band reveal" appReveal>
+      <h2>More on GitHub.</h2>
+      <p>Code, experiments and the occasional weekend project all live over there.</p>
+      <a class="btn btn-ghost" href="https://github.com/krunal-ctrl" target="_blank" rel="noopener">Visit GitHub →</a>
+    </div>
+  </div>
+</section>
