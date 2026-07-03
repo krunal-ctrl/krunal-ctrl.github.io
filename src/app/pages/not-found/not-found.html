@@ -1,21 +1,15 @@
 <header class="site-header">
   <nav class="nav wrap" aria-label="Primary">
-    <a class="brand" routerLink="/">
-      <span class="brand-first">Krunal</span>
-      <span class="brand-mono" aria-hidden="true">
-        <svg class="hand-k" width="22" height="26" viewBox="0 0 22 26" fill="none"><path d="M5 2.5C4.2 8 5.6 15 4.9 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 13C9 10 12.5 6.5 17 2.8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12.5C10 15 14 19 18 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="brand-last">Jethva</span>
-    </a>
+    <app-brand />
     <div class="primary-nav" [class.open]="menuOpen()">
       <ul>
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/about">About</a></li>
-        <li><a routerLink="/projects">Projects</a></li>
+        @for (link of navLinks; track link.path) {
+          <li><a [routerLink]="link.path">{{ link.label }}</a></li>
+        }
       </ul>
     </div>
     <div class="header-actions">
-      <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+      <a class="btn btn-ghost" [href]="links.resume" target="_blank" rel="noopener">Résumé ↗</a>
       <button class="nav-toggle" aria-label="Toggle menu" [attr.aria-expanded]="menuOpen()" (click)="toggleMenu()">☰</button>
     </div>
   </nav>

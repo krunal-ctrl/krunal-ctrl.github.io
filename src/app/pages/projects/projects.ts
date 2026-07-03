@@ -3,6 +3,7 @@ import { Meta } from '@angular/platform-browser';
 import { Reveal } from '../../shared/directives/reveal';
 import { ProjectCard } from '../../shared/components/project-card/project-card';
 import { PROJECTS } from '../../data/projects.data';
+import { SITE_LINKS } from '../../data/links.data';
 
 @Component({
   selector: 'app-projects',
@@ -14,6 +15,7 @@ export class Projects {
   private readonly meta = inject(Meta);
 
   readonly projects = PROJECTS;
+  readonly links = SITE_LINKS;
 
   constructor() {
     this.meta.updateTag({

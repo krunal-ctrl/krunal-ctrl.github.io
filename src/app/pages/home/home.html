@@ -7,7 +7,7 @@
       <p class="lead">For {{ careerStartIso | yearsSince }}+ years I've shipped mission-critical .NET and Angular apps for global clients - the kind that stay quick, reliable, and pleasant to use under real-world load.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" routerLink="/projects">See my work →</a>
-        <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+        <a class="btn btn-ghost" [href]="links.resume" target="_blank" rel="noopener">Download résumé</a>
       </div>
     </div>
     <div class="hero-portrait">
@@ -90,7 +90,7 @@
     <div class="band reveal" appReveal>
       <h2>Let's build something solid.</h2>
       <p>I'm always glad to talk about backend systems, Angular, or interesting engineering problems.</p>
-      <a class="btn btn-ghost" href="mailto:krunaljethva90@gmail.com">Get in touch →</a>
+      <a class="btn btn-ghost" [href]="'mailto:' + links.email">Get in touch →</a>
     </div>
   </div>
 </section>

@@ -11,6 +11,7 @@ import { STATS } from '../../data/stats.data';
 import { BENTO_TILES } from '../../data/bento.data';
 import { EXPERIENCE } from '../../data/experience.data';
 import { FEATURED_PROJECTS } from '../../data/projects.data';
+import { SITE_LINKS } from '../../data/links.data';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +27,7 @@ export class Home {
   readonly bentoTiles = BENTO_TILES;
   readonly recentExperience = EXPERIENCE.slice(0, 2);
   readonly featuredProjects = FEATURED_PROJECTS;
+  readonly links = SITE_LINKS;
 
   constructor() {
     this.meta.updateTag({
