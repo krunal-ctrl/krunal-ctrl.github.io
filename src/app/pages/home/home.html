@@ -20,8 +20,8 @@
 <section class="stats-section">
   <div class="wrap">
     <div class="stats">
-      @for (stat of stats; track stat.label) {
-        <app-stat-counter class="reveal" appReveal [stat]="stat" />
+      @for (stat of stats; track stat.label; let i = $index) {
+        <app-stat-counter class="reveal" [appReveal]="i" [stat]="stat" />
       }
     </div>
   </div>
@@ -36,8 +36,8 @@
       <p>I'm happiest moving across the whole stack - designing the API, the data layer, and the interface that sits on top of them.</p>
     </div>
     <div class="bento">
-      @for (tile of bentoTiles; track tile.id) {
-        <app-bento-tile class="reveal" appReveal [tile]="tile" />
+      @for (tile of bentoTiles; track tile.id; let i = $index) {
+        <app-bento-tile class="reveal" [appReveal]="i" [tile]="tile" />
       }
     </div>
   </div>
@@ -50,19 +50,7 @@
       <p class="eyebrow">Recent work</p>
       <h2>Where I've been building.</h2>
     </div>
-    <div class="timeline">
-      @for (exp of recentExperience; track exp.company + exp.role) {
-        <div class="t-item reveal" appReveal>
-          <div class="t-role">{{ exp.role }} · <a [href]="exp.companyUrl" target="_blank" rel="noopener">{{ exp.company }}</a></div>
-          <div class="t-meta">{{ exp.dateRange }} · {{ exp.location }}</div>
-          <ul>
-            @for (bullet of exp.briefBullets ?? exp.bullets.slice(0, 2); track bullet) {
-              <li>{{ bullet }}</li>
-            }
-          </ul>
-        </div>
-      }
-    </div>
+    <app-timeline [experience]="recentExperience" [brief]="true" />
     <p style="margin-top: 28px;"><a routerLink="/about">Read the full story →</a></p>
   </div>
 </section>
@@ -76,8 +64,8 @@
       <p>From multi-location POS platforms to real-time systems - here's a taste.</p>
     </div>
     <div class="proj-grid">
-      @for (project of featuredProjects; track project.title) {
-        <app-project-card class="reveal" appReveal [project]="project" />
+      @for (project of featuredProjects; track project.title; let i = $index) {
+        <app-project-card class="reveal" [appReveal]="i" [project]="project" />
       }
     </div>
     <p style="margin-top: 28px;"><a routerLink="/projects">See all projects →</a></p>

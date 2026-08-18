@@ -10,8 +10,10 @@
   border: 1px solid var(--border);
   background: var(--surface);
   overflow: hidden;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s var(--ease-spring), box-shadow 0.18s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
+/* transform is normally driven by BentoTile's pointerenter/leave spring (see bento-tile.ts);
+   this is the CSS-only fallback for prefers-reduced-motion, where no inline transform is set */
 :host(:hover) { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .ico { font-size: 1.7rem; line-height: 1; }
 /* oversized faint glyph for texture */

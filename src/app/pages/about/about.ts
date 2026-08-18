@@ -3,13 +3,14 @@ import { Meta } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { Reveal } from '../../shared/directives/reveal';
 import { YearsSincePipe } from '../../shared/pipes/years-since-pipe';
+import { Timeline } from '../../shared/components/timeline/timeline';
 import { CAREER_START_ISO } from '../../data/career';
 import { EXPERIENCE } from '../../data/experience.data';
 import { SKILLS } from '../../data/skills.data';
 
 @Component({
   selector: 'app-about',
-  imports: [RouterLink, Reveal, YearsSincePipe],
+  imports: [RouterLink, Reveal, YearsSincePipe, Timeline],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

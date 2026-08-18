@@ -38,7 +38,7 @@
   font-display: swap;
 }
 
-/* ---------- Design tokens ---------- */
+/* ---------- Design tokens (light - default) ---------- */
 :root {
   --bg: hsl(210deg 25% 98%);
   --bg-soft: hsl(220deg 35% 95%);
@@ -60,8 +60,45 @@
   --radius-lg: 24px;
   --shadow-sm: 0 1px 2px rgba(33, 32, 43, 0.06), 0 2px 8px rgba(33, 32, 43, 0.05);
   --shadow-md: 0 8px 28px hsl(245deg 100% 60% / 0.16), 0 2px 8px hsl(222deg 40% 20% / 0.06);
+  --shadow-lg: 0 16px 48px hsl(245deg 100% 60% / 0.2), 0 4px 16px hsl(222deg 40% 20% / 0.1);
   --maxw: 1080px;
   --font: 'Apercu', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Materials - translucent layers (header, floating nav panel). Content scrolls under these. */
+  --material-thin-bg: hsl(210deg 40% 99% / 0.72);
+  --material-thin-blur: 16px;
+  --material-thick-bg: hsl(220deg 35% 97% / 0.88);
+  --material-thick-blur: 26px;
+  --material-edge: rgba(255, 255, 255, 0.5); /* bright top edge = light catching the material */
+
+  /* Motion - critically-damped cubic-bezier approximation for the few rules that stay pure CSS */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Design tokens (dark) ---------- */
+:root[data-theme='dark'] {
+  --bg: hsl(228deg 22% 9%);
+  --bg-soft: hsl(228deg 18% 14%);
+  --surface: hsl(226deg 18% 13%);
+  --ink: hsl(210deg 30% 96%);
+  --ink-soft: hsl(216deg 14% 72%);
+  --ink-faint: hsl(216deg 12% 50%);
+  --border: hsl(224deg 16% 22%);
+
+  --violet: hsl(245deg 100% 72%);
+  --primary: hsl(245deg 100% 70%);
+  --pink: hsl(333deg 85% 66%);
+  --teal: hsl(170deg 65% 55%);
+
+  --accent-ink: hsl(245deg 100% 80%);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 28px hsl(245deg 100% 60% / 0.28), 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 48px hsl(245deg 100% 60% / 0.32), 0 8px 24px rgba(0, 0, 0, 0.5);
+
+  --material-thin-bg: hsl(226deg 24% 11% / 0.68);
+  --material-thick-bg: hsl(226deg 22% 12% / 0.9);
+  --material-edge: rgba(255, 255, 255, 0.08);
 }
 
 /* ---------- Reset-ish ---------- */
@@ -73,17 +110,21 @@ body {
   color: var(--ink);
   background: var(--bg);
   line-height: 1.65;
+  letter-spacing: 0; /* body text: tracking stays near-zero at reading sizes */
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 img { max-width: 100%; display: block; }
 a { color: var(--accent-ink); text-decoration: none; }
 a:hover { text-decoration: underline; }
-h1, h2, h3 { line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 0.4em; }
-h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
-h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
-h3 { font-size: 1.25rem; }
+
+/* Type scale: tracking/leading tighten as size grows, per Apple's optical-sizing discipline */
+h1, h2, h3 { font-weight: 700; margin: 0 0 0.4em; }
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.04; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.1; letter-spacing: -0.02em; }
+h3 { font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.01em; }
 p { margin: 0 0 1.1em; }
 ::selection { background: var(--violet); color: #fff; }
 
@@ -92,42 +133,25 @@ p { margin: 0 0 1.1em; }
 .gradient-text { color: var(--violet); }
 .eyebrow {
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.08em; /* small text: slightly positive tracking aids legibility */
   text-transform: uppercase;
   font-size: 0.8rem;
   color: var(--accent-ink);
   margin: 0 0 0.6em;
 }
 
-/* ---------- Brand (used in both header and footer) ---------- */
-.brand { font-weight: 700; font-size: 1.2rem; color: var(--ink); display: inline-flex; align-items: baseline; gap: 0.16em; letter-spacing: -0.01em; }
-.brand:hover { text-decoration: none; }
-.brand-mono {
-  display: inline-flex;
-  align-items: center;
-  color: var(--primary);
-  margin: 0 0.1em;
-}
-.brand-mono svg {
-  height: 1.25em;
-  width: auto;
-  display: block;
-  stroke: currentColor;
-  fill: none;
-  overflow: visible;
-  transform: translateY(0.05em) rotate(-4deg);
-}
-.brand-last { color: var(--ink); }
-
 /* ---------- Header chrome (used by Header and NotFound's own trimmed header) ---------- */
+/* .brand/.brand-mono/.brand-last now live scoped in shared/components/brand/brand.scss */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: hsl(210deg 40% 99% / 0.78);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  background: var(--material-thin-bg);
+  backdrop-filter: saturate(180%) blur(var(--material-thin-blur));
+  -webkit-backdrop-filter: saturate(180%) blur(var(--material-thin-blur));
   border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--material-edge);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 .nav {
   display: flex;
@@ -136,16 +160,30 @@ p { margin: 0 0 1.1em; }
   height: 68px;
 }
 
-/* Primary nav as a list */
-.primary-nav ul { list-style: none; display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; }
+/* Primary nav as a list, with a spring-driven pill indicator behind the active link */
+.primary-nav ul { position: relative; list-style: none; display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; }
 .primary-nav a {
+  position: relative;
+  z-index: 1;
   color: var(--ink-soft);
   font-weight: 500;
   padding: 0.4em 0.8em;
   border-radius: 999px;
+  transition: color 0.15s ease;
 }
 .primary-nav a:hover { color: var(--ink); background: var(--bg-soft); text-decoration: none; }
 .primary-nav a.active { color: var(--accent-ink); }
+.nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform, width;
+}
 
 /* Right-side actions cluster */
 .header-actions { display: flex; align-items: center; gap: 10px; }
@@ -157,25 +195,41 @@ p { margin: 0 0 1.1em; }
   border-radius: 50%;
   color: var(--ink-soft);
   border: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
 }
 .icon-btn:hover { color: var(--accent-ink); background: var(--bg-soft); text-decoration: none; }
+.icon-btn:active { transform: scale(0.92); }
 .nav-toggle { display: none; background: none; border: 0; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--ink); padding: 4px 8px; }
 
 @media (max-width: 600px) {
   .primary-nav {
     position: absolute;
-    top: 68px; left: 0; right: 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 8px 24px 16px;
-    display: none;
+    top: 60px; right: 16px;
+    min-width: 220px;
+    background: var(--material-thick-bg);
+    backdrop-filter: saturate(180%) blur(var(--material-thick-blur));
+    -webkit-backdrop-filter: saturate(180%) blur(var(--material-thick-blur));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px;
+    box-shadow: var(--shadow-lg);
+    transform-origin: top right;
+    /* opacity/transform/pointer-events are driven by motion in Header (spring open/close) */
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
   }
-  .primary-nav.open { display: block; }
+  /* CSS-only fallback for callers that toggle a class instead of driving Motion (e.g. NotFound's
+     trimmed header, which has no JS animation of its own) - Header's inline styles still win where set. */
+  .primary-nav.open { opacity: 1; transform: scale(1); pointer-events: auto; }
+  .primary-nav .nav-indicator { display: none; }
   .primary-nav ul { flex-direction: column; align-items: stretch; gap: 2px; }
   .primary-nav a { padding: 0.7em 0.6em; }
   .nav-toggle { display: block; }
-  /* keep only the hamburger in the header on mobile */
-  .header-actions .icon-btn,
+  /* keep only the hamburger + theme toggle in the header on mobile */
+  .header-actions .icon-btn:not(.theme-toggle),
   .header-actions .btn { display: none; }
 }
 
@@ -190,10 +244,11 @@ p { margin: 0 0 1.1em; }
   border-radius: 999px;
   border: 1.5px solid transparent;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s var(--ease-spring), box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   text-decoration: none;
 }
 .btn:hover { text-decoration: none; transform: translateY(-2px); }
+.btn:active { transform: translateY(-2px) scale(0.97); } /* respond on press, not just release */
 .btn-primary { background: var(--primary); color: #fff; box-shadow: var(--shadow-md); }
 .btn-primary:hover { background: hsl(245deg 100% 60%); }
 .btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--border); box-shadow: var(--shadow-sm); }
@@ -206,7 +261,7 @@ section { padding: 72px 0; }
 
 /* ---------- Hero (base, shared across all pages; page-specific layout lives per-component) ---------- */
 .hero { padding-top: 88px; padding-bottom: 40px; }
-.hero .lead { font-size: 1.25rem; color: var(--ink-soft); max-width: 38ch; }
+.hero .lead { font-size: 1.25rem; line-height: 1.5; color: var(--ink-soft); max-width: 38ch; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1.4fr 0.9fr;
@@ -223,7 +278,8 @@ section { padding: 72px 0; }
   object-fit: cover;
   border-radius: 28px;
   box-shadow: var(--shadow-md);
-  border: 4px solid #fff;
+  border: 4px solid var(--surface);
+  transition: border-color 0.35s ease;
 }
 .hero-portrait::before {
   content: '';
@@ -250,7 +306,7 @@ section { padding: 72px 0; }
   padding: 28px;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s var(--ease-spring), box-shadow 0.18s ease, background-color 0.35s ease, border-color 0.35s ease;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .card .ico { font-size: 1.8rem; margin-bottom: 12px; }
@@ -260,11 +316,13 @@ section { padding: 72px 0; }
 .tag {
   font-size: 0.8rem;
   font-weight: 500;
+  letter-spacing: 0.01em;
   padding: 0.3em 0.75em;
   border-radius: 999px;
   background: var(--bg-soft);
   color: var(--accent-ink);
   border: 1px solid var(--border);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 
 /* ---------- Project grid (bento-style with illustrated banners) ---------- */
@@ -285,6 +343,7 @@ section { padding: 72px 0; }
   margin: -28px -28px 20px;
   background: var(--bg-soft);
   border-bottom: 1px solid var(--border);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
 }
 .proj-art svg { width: auto; height: 100%; max-width: 100%; padding: 16px 0; }
 
@@ -316,7 +375,7 @@ section { padding: 72px 0; }
   background: var(--primary);
   box-shadow: 0 0 0 4px var(--bg);
 }
-.t-item .t-role { font-weight: 700; font-size: 1.15rem; }
+.t-item .t-role { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.01em; }
 .t-item .t-meta { color: var(--ink-faint); font-size: 0.9rem; margin-bottom: 0.5em; }
 .t-item .t-meta a { color: var(--accent-ink); }
 .t-item ul { margin: 0; padding-left: 1.1em; color: var(--ink-soft); }
@@ -329,18 +388,34 @@ section { padding: 72px 0; }
   padding: 48px;
   color: #fff;
   text-align: center;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 .band h2 { color: #fff; }
-.band p { color: rgba(255,255,255,0.9); max-width: 46ch; margin: 0 auto 1.4em; }
+.band p { color: rgba(255, 255, 255, 0.92); max-width: 46ch; margin: 0 auto 1.4em; }
 .band .btn-ghost { background: #fff; border-color: #fff; color: var(--accent-ink); }
 
-/* ---------- Reveal animation ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* ---------- Reveal animation ----------
+   Initial (SSR-safe) hidden state only. The Reveal directive drives the actual
+   fade/rise via a Motion spring against these starting values, so no CSS transition
+   is defined here - see shared/directives/reveal.ts. */
+.reveal { opacity: 0; transform: translateY(18px); }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
+  * { transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Reduced transparency / increased contrast ---------- */
+@media (prefers-reduced-transparency: reduce) {
+  .site-header, .primary-nav {
+    background: var(--surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .site-header { background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-width: 2px; }
+  .card, .primary-nav, .icon-btn, .btn-ghost { border-width: 2px; }
 }
 
 /* ---------- Responsive (rules for the shared classes above) ---------- */

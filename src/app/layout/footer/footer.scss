@@ -4,6 +4,15 @@
   padding: 56px 0;
   background: var(--bg-soft);
   border-top: 1px solid var(--border);
+  transition: background-color 0.35s ease, border-color 0.35s ease;
+}
+/* bright top edge = light catching the material, matches the header treatment */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--material-edge);
 }
 .footer-inner {
   display: flex;

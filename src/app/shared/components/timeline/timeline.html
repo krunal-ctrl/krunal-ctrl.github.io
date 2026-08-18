@@ -1,0 +1,13 @@
+<div class="timeline">
+  @for (exp of experience; track exp.company + exp.role; let i = $index) {
+    <div class="t-item reveal" [appReveal]="i">
+      <div class="t-role">{{ exp.role }} · <a [href]="exp.companyUrl" target="_blank" rel="noopener">{{ exp.company }}</a></div>
+      <div class="t-meta">{{ exp.dateRange }} · {{ exp.location }}</div>
+      <ul>
+        @for (bullet of bulletsFor(exp); track bullet) {
+          <li>{{ bullet }}</li>
+        }
+      </ul>
+    </div>
+  }
+</div>

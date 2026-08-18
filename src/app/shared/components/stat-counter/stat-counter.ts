@@ -1,6 +1,9 @@
 import { Component, Input, OnDestroy, OnInit, afterNextRender, ElementRef, inject, signal } from '@angular/core';
+import { animate } from 'motion';
 import { Stat } from '../../../data/stats.model';
 import { completedYears } from '../../util/completed-years';
+import { prefersReducedMotion } from '../../util/motion-prefs';
+import { SPRING_UI } from '../../util/springs';
 
 @Component({
   selector: 'app-stat-counter',
@@ -28,8 +31,7 @@ export class StatCounter implements OnInit, OnDestroy {
 
   constructor() {
     afterNextRender(() => {
-      const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion || !('IntersectionObserver' in window)) {
+      if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
         return;
       }
 
@@ -53,17 +55,10 @@ export class StatCounter implements OnInit, OnDestroy {
     this.animated = true;
 
     this.displayValue.set(0);
-    const duration = 1100;
-    let startTime: number | null = null;
-
-    const step = (ts: number) => {
-      if (startTime === null) startTime = ts;
-      const progress = Math.min((ts - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      this.displayValue.set(Math.round(eased * this.target));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+    animate(0, this.target, {
+      ...SPRING_UI,
+      onUpdate: (latest) => this.displayValue.set(Math.round(latest)),
+    });
   }
 
   ngOnDestroy(): void {

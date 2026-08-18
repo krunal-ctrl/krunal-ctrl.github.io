@@ -9,8 +9,8 @@
 <section>
   <div class="wrap">
     <div class="proj-grid cols-3">
-      @for (project of projects; track project.title) {
-        <app-project-card class="reveal" appReveal [project]="project" />
+      @for (project of projects; track project.title; let i = $index) {
+        <app-project-card class="reveal" [appReveal]="i" [project]="project" />
       }
     </div>
   </div>

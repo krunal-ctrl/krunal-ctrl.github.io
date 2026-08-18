@@ -1,0 +1,29 @@
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.16em;
+  transition: color 0.35s ease;
+}
+.brand:hover { text-decoration: none; }
+
+.brand-mono {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  margin: 0 0.1em;
+}
+.brand-mono svg {
+  height: 1.25em;
+  width: auto;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  overflow: visible;
+  transform: translateY(0.05em) rotate(-4deg);
+}
+
+.brand-last { color: var(--ink); }

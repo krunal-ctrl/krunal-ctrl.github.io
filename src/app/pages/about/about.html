@@ -29,19 +29,7 @@
       <p class="eyebrow">Experience</p>
       <h2>The journey so far.</h2>
     </div>
-    <div class="timeline">
-      @for (exp of experience; track exp.company + exp.role) {
-        <div class="t-item reveal" appReveal>
-          <div class="t-role">{{ exp.role }} · <a [href]="exp.companyUrl" target="_blank" rel="noopener">{{ exp.company }}</a></div>
-          <div class="t-meta">{{ exp.dateRange }} · {{ exp.location }}</div>
-          <ul>
-            @for (bullet of exp.bullets; track bullet) {
-              <li>{{ bullet }}</li>
-            }
-          </ul>
-        </div>
-      }
-    </div>
+    <app-timeline [experience]="experience" />
   </div>
 </section>
 

@@ -6,6 +6,7 @@ import { YearsSincePipe } from '../../shared/pipes/years-since-pipe';
 import { StatCounter } from '../../shared/components/stat-counter/stat-counter';
 import { BentoTile } from '../../shared/components/bento-tile/bento-tile';
 import { ProjectCard } from '../../shared/components/project-card/project-card';
+import { Timeline } from '../../shared/components/timeline/timeline';
 import { CAREER_START_ISO } from '../../data/career';
 import { STATS } from '../../data/stats.data';
 import { BENTO_TILES } from '../../data/bento.data';
@@ -15,7 +16,7 @@ import { SITE_LINKS } from '../../data/links.data';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, Reveal, YearsSincePipe, StatCounter, BentoTile, ProjectCard],
+  imports: [RouterLink, Reveal, YearsSincePipe, StatCounter, BentoTile, ProjectCard, Timeline],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

@@ -3,6 +3,9 @@
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 .wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out 1s 2; }
 @keyframes wave { 0%,60%,100%{transform:rotate(0)} 10%{transform:rotate(16deg)} 20%{transform:rotate(-8deg)} 30%{transform:rotate(16deg)} 40%{transform:rotate(-4deg)} 50%{transform:rotate(10deg)} }
+@media (prefers-reduced-motion: reduce) {
+  .wave { animation: none; }
+}
 
 /* ---------- Stat strip ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
