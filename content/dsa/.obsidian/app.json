@@ -1,0 +1,30 @@
+{
+  "userIgnoreFilters": [
+    ".claude/",
+    ".github/",
+    ".gitattributes",
+    ".gitignore",
+    ".node-version",
+    ".npmrc",
+    ".prettierignore",
+    ".prettierrc",
+    "Patterns.md",
+    "README.md",
+    "Untitled.canvas",
+    "Untitled.md",
+    "Welcome.md",
+    "globals.d.ts",
+    "index.d.ts",
+    "package-lock.json",
+    "package.json",
+    "node_modules/",
+    "public/",
+    "quartz/",
+    "quartz.config.ts",
+    "quartz.layout.ts",
+    "tsconfig.json",
+    "content/Templates/",
+    "content/Excalidraw/"
+  ],
+  "alwaysUpdateLinks": true
+}
