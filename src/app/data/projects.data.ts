@@ -1,6 +1,10 @@
 import { Project } from './projects.model';
 
-/** Full project list shown on the Projects page, in the original card order. */
+/**
+ * Full project list shown on the Projects page, ordered by impact (highest first).
+ * The Projects page treats the first three as "flagship" feature blocks and the
+ * rest as a secondary grid, so this order is meaningful — keep it impact-ranked.
+ */
 export const PROJECTS: Project[] = [
   {
     title: 'Restaurant POS System',
@@ -11,13 +15,6 @@ export const PROJECTS: Project[] = [
     artId: 'restaurant-pos',
   },
   {
-    title: 'Printer Management Dashboard',
-    description:
-      'A real-time printer monitoring system integrated with the Windows print spooler - job-queue management, automated cleanup of stale jobs, and comprehensive error tracking.',
-    tags: ['.NET', 'Angular'],
-    icon: '🖨️',
-  },
-  {
     title: 'Online Food Ordering Platform',
     description:
       'A responsive ordering platform with real-time order tracking, dynamic menu management and a kitchen-notification system. Secure Firebase auth with custom claims and private-key auth between microservices, plus Google Pay and Apple Pay integration.',
@@ -26,11 +23,11 @@ export const PROJECTS: Project[] = [
     artId: 'food-ordering',
   },
   {
-    title: 'Audio Recording Module for POS',
+    title: 'Airline Reservation System',
     description:
-      'A Python audio-recording system with custom buffer management - automatic gain control, noise reduction and storage optimisation.',
-    tags: ['Python', 'Flask'],
-    icon: '🎙️',
+      'A full-stack reservation system on .NET Web API and Angular, with a custom graph algorithm for optimal multi-city flight routing and support for one-way, round-trip and multi-city itineraries.',
+    tags: ['.NET Web API', 'Angular', 'Graph Algorithms'],
+    artId: 'airline',
   },
   {
     title: 'Transformation Conversational Chat',
@@ -47,18 +44,25 @@ export const PROJECTS: Project[] = [
     icon: '🤖',
   },
   {
+    title: 'Printer Management Dashboard',
+    description:
+      'A real-time printer monitoring system integrated with the Windows print spooler - job-queue management, automated cleanup of stale jobs, and comprehensive error tracking.',
+    tags: ['.NET', 'Angular'],
+    icon: '🖨️',
+  },
+  {
+    title: 'Audio Recording Module for POS',
+    description:
+      'A Python audio-recording system with custom buffer management - automatic gain control, noise reduction and storage optimisation.',
+    tags: ['Python', 'Flask'],
+    icon: '🎙️',
+  },
+  {
     title: 'YouTube Transcript Summarizer',
     description:
       'A Chrome extension with a Python NLP backend that automatically summarises YouTube video transcripts.',
     tags: ['JavaScript', 'Python', 'Chrome Extension'],
     icon: '📺',
-  },
-  {
-    title: 'Airline Reservation System',
-    description:
-      'A full-stack reservation system on .NET Web API and Angular, with a custom graph algorithm for optimal multi-city flight routing and support for one-way, round-trip and multi-city itineraries.',
-    tags: ['.NET Web API', 'Angular', 'Graph Algorithms'],
-    artId: 'airline',
   },
 ];
 

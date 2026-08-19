@@ -1,2 +1,70 @@
-.projects-hero { padding-bottom: 0; }
-.projects-lead { max-width: 52ch; }
+/* ================= Secondary grid (compact, description on hover) ================= */
+.mgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.mcard {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 20px;
+  align-items: center;
+  min-height: 116px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.mcard:hover, .mcard:focus-within { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--violet); }
+.mthumb {
+  height: 76px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.mthumb svg { width: auto; height: 100%; max-width: 100%; padding: 10px 0; }
+.memoji { font-size: 2.1rem; line-height: 1; }
+.mbody { min-width: 0; }
+.mnum {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--ink-faint); font-variant-numeric: tabular-nums; margin: 0 0 2px;
+}
+.mtitle { font-size: 1.05rem; letter-spacing: -0.01em; margin: 0 0 10px; }
+.mbody .tags { margin-top: 0; }
+
+/* hover card: description slides over the compact card */
+.mreveal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 18px 22px;
+  background: var(--surface);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s var(--ease-spring);
+}
+.mcard:hover .mreveal, .mcard:focus-within .mreveal { opacity: 1; transform: none; }
+.mreveal .mtitle { margin: 0; }
+.mdesc { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.45; margin: 0; }
+
+.projects-cta { display: flex; justify-content: center; }
+
+@media (max-width: 620px) {
+  .mgrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 380px) {
+  .mcard { grid-template-columns: 1fr; }
+  .mthumb { height: 88px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mreveal { transition: opacity 0.2s ease; transform: none; }
+}

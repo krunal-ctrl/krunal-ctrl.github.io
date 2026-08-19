@@ -1,27 +1,101 @@
-<section class="hero projects-hero">
-  <div class="wrap">
-    <p class="eyebrow">Projects</p>
-    <h1>Things I've <span class="gradient-text">built.</span></h1>
-    <p class="lead projects-lead">A selection of work spanning distributed backends, real-time systems and full-stack products. Some are client work; some are for the joy of it.</p>
+<!-- ============ Keynote hero ============ -->
+<section class="kh">
+  <div class="wrap kh-grid kh-solo">
+    <div class="kh-copy">
+      <p class="eyebrow kh-eyebrow">Projects</p>
+      <h1 class="kh-title">
+        The work.
+        <span class="kh-underline"><app-doodle kind="underline" /></span>
+      </h1>
+      <p class="kh-sub">A selection spanning distributed backends, real-time systems, and full-stack products — ordered by impact. Some is client work; some is for the joy of it.</p>
+    </div>
   </div>
 </section>
 
-<section>
+<!-- ============ Flagship work ============ -->
+<section class="flagship-section" style="padding-top: 8px;">
   <div class="wrap">
-    <div class="proj-grid cols-3">
-      @for (project of projects; track project.title; let i = $index) {
-        <app-project-card class="reveal" [appReveal]="i" [project]="project" />
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">Selected work</p>
+      <h2>A closer look.</h2>
+      <span class="head-doodle"><app-doodle kind="underline" /></span>
+    </div>
+
+    <div class="feat-list">
+      @for (p of flagship; track p.title; let i = $index) {
+        <article class="feat reveal" [class.feat-rev]="i % 2 === 1" [appReveal]="i">
+          <div class="feat-art">
+            @if (p.artId) {
+              <app-project-art [artId]="p.artId" />
+            } @else if (p.icon) {
+              <span class="feat-emoji">{{ p.icon }}</span>
+            }
+          </div>
+          <div class="feat-body">
+            <p class="feat-no">{{ pad(i + 1) }}</p>
+            <h3 class="feat-title">{{ p.title }}</h3>
+            <p class="feat-desc">{{ p.description }}</p>
+            <div class="tags">
+              @for (tag of p.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </article>
       }
     </div>
   </div>
 </section>
 
-<section style="padding-top: 0;">
+<!-- ============ More projects ============ -->
+<section class="more-section" style="padding-top: 0;">
   <div class="wrap">
-    <div class="band reveal" appReveal>
+    <div class="section-head reveal" appReveal>
+      <p class="eyebrow">More projects</p>
+      <h2>And more.</h2>
+    </div>
+
+    <div class="mgrid">
+      @for (p of more; track p.title; let j = $index) {
+        <article class="mcard reveal" [appReveal]="j" tabindex="0">
+          <div class="mthumb">
+            @if (p.artId) {
+              <app-project-art [artId]="p.artId" />
+            } @else if (p.icon) {
+              <span class="memoji">{{ p.icon }}</span>
+            }
+          </div>
+          <div class="mbody">
+            <p class="mnum">{{ pad(moreStart + j + 1) }}</p>
+            <h3 class="mtitle">{{ p.title }}</h3>
+            <div class="tags">
+              @for (tag of p.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+          <!-- description revealed on hover / focus -->
+          <div class="mreveal">
+            <h3 class="mtitle">{{ p.title }}</h3>
+            <p class="mdesc">{{ p.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ============ Closing ============ -->
+<section style="padding-top: 8px;">
+  <div class="wrap">
+    <div class="section-head center reveal" appReveal>
+      <p class="eyebrow">And the rest</p>
       <h2>More on GitHub.</h2>
-      <p>Code, experiments and the occasional weekend project all live over there.</p>
-      <a class="btn btn-ghost" [href]="links.github" target="_blank" rel="noopener">Visit GitHub →</a>
+      <span class="head-doodle"><app-doodle kind="squiggle" /></span>
+      <p>Code, experiments, and the occasional weekend project all live over there.</p>
+    </div>
+    <div class="projects-cta">
+      <a class="btn btn-primary" [href]="links.github" target="_blank" rel="noopener">Visit GitHub</a>
     </div>
   </div>
 </section>

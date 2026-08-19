@@ -1,48 +1,118 @@
+/* Page-only pieces. The keynote hero, heading accents, spec sheet, and buy row
+   are shared furniture and live in global styles.scss (used by About/Projects too). */
+
+/* ================= Keynote statement ================= */
+.keynote { text-align: center; padding: clamp(64px, 12vh, 128px) 0; }
+.keynote-line {
+  margin: 0;
+  font-size: clamp(1.9rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.keynote-line .dim { color: var(--ink-faint); }
+
+/* ================= Stats ================= */
 .stats-section { padding-top: 24px; }
-
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.wave { display: inline-block; transform-origin: 70% 70%; animation: wave 2.4s ease-in-out 1s 2; }
-@keyframes wave { 0%,60%,100%{transform:rotate(0)} 10%{transform:rotate(16deg)} 20%{transform:rotate(-8deg)} 30%{transform:rotate(16deg)} 40%{transform:rotate(-4deg)} 50%{transform:rotate(10deg)} }
-@media (prefers-reduced-motion: reduce) {
-  .wave { animation: none; }
-}
-
-/* ---------- Stat strip ---------- */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-
-/* ---------- Bento grid (Josh Comeau-style, asymmetric tiles) ---------- */
-.bento {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 1fr;
-  gap: 16px;
-  grid-template-areas:
-    "backend backend frontend cloud"
-    "backend backend frontend arch"
-    "auth    mentor  mentor   arch";
-}
-.b-backend  { grid-area: backend; }
-.b-frontend { grid-area: frontend; }
-.b-cloud    { grid-area: cloud; }
-.b-arch     { grid-area: arch; }
-.b-auth     { grid-area: auth; }
-.b-mentor   { grid-area: mentor; }
-
-@media (max-width: 900px) {
-  .bento {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "backend backend"
-      "frontend cloud"
-      "arch     auth"
-      "mentor   mentor";
-  }
-}
-@media (max-width: 560px) {
-  .bento { grid-template-columns: 1fr; grid-template-areas: none; }
-  .bento-item { grid-area: auto !important; min-height: 0; }
-}
 
 @media (max-width: 860px) {
   .stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ================= What's inside — the stack, alive ================= */
+.flow {
+  display: flex;
+  align-items: flex-start;   /* tops align, so connectors line up with the orbs */
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 56px;
+}
+.stage {
+  position: relative;
+  flex: 1 1 170px;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.orb-wrap { position: relative; width: 88px; height: 88px; }
+.orb {
+  position: relative;
+  z-index: 1;
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  border: 2.5px solid var(--ink);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  animation: orb-bob 4.5s ease-in-out infinite;
+  transition: transform 0.25s var(--ease-spring), border-color 0.25s ease, color 0.25s ease, background-color 0.35s ease;
+}
+.flow > .stage:nth-child(3) .orb { animation-delay: -1.5s; }
+.flow > .stage:nth-child(5) .orb { animation-delay: -3s; }
+@keyframes orb-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+.orb svg { width: 38px; height: 38px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+/* pause the float and take over the transform on hover */
+.stage:hover .orb { animation-play-state: paused; transform: translateY(-9px) scale(1.05) rotate(-3deg); border-color: var(--violet); color: var(--violet); }
+.stage.core .orb { border-color: var(--primary); color: var(--primary); }
+
+.sname { font-weight: 700; margin: 18px 0 0; letter-spacing: -0.01em; }
+.stech { font-size: 0.85rem; color: var(--ink-faint); margin: 2px 0 0; }
+.exp {
+  margin: 8px 0 0;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--accent-ink);
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.stage:hover .exp { opacity: 1; transform: none; }
+
+/* core-strength: a small planet orbiting the backend orb */
+.orbit {
+  position: absolute; top: 50%; left: 50%;
+  width: 138px; height: 138px;
+  transform: translate(-50%, -50%) rotate(-18deg) scaleY(0.56);
+  pointer-events: none;
+}
+.orbit-path { position: absolute; inset: 0; border: 2px solid var(--violet); border-radius: 50%; opacity: 0.4; }
+.orbit-spin { position: absolute; inset: 0; animation: orbit-rot 7s linear infinite; }
+.orbit-planet {
+  position: absolute; top: -7px; left: 50%;
+  width: 14px; height: 14px; margin-left: -7px;
+  border-radius: 50%; background: var(--pink);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--pink) 20%, transparent);
+}
+@keyframes orbit-rot { to { transform: rotate(360deg); } }
+
+/* animated dashed connectors, centered on the orbs (orb is 88px tall) */
+.conn { flex: 0 0 44px; height: 88px; display: flex; align-items: center; color: var(--ink-faint); }
+.conn svg { width: 100%; height: 34px; }
+.conn-line { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 6 7; animation: conn-march 1.1s linear infinite; }
+.conn-head { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+@keyframes conn-march { to { stroke-dashoffset: -26; } }
+
+/* cross-cutting foundations */
+.found { margin-top: 56px; }
+.found-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 16px; }
+.fgrid { display: flex; gap: 16px; flex-wrap: wrap; }
+.fitem { flex: 1 1 240px; display: flex; gap: 12px; align-items: flex-start; padding: 16px 4px; border-top: 2px dotted var(--border); transition: border-color 0.2s ease; }
+.fitem:hover { border-color: var(--violet); }
+.fic { flex: 0 0 auto; width: 34px; height: 34px; color: var(--accent-ink); display: flex; align-items: center; justify-content: center; }
+.fic svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.fitem b { display: block; font-weight: 700; letter-spacing: -0.01em; }
+.fitem span { font-size: 0.9rem; color: var(--ink-soft); }
+
+@media (max-width: 720px) {
+  .conn { display: none; }
+  .flow { gap: 28px 16px; }
+  .stage { flex: 1 1 40%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb, .orbit-spin, .conn-line { animation: none; }
 }

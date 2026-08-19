@@ -1,0 +1,29 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 0;            /* above the body background, below all page content */
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--violet);  /* motifs pick this up via currentColor */
+}
+.sky { width: 100%; height: 100%; display: block; }
+
+/* Subtle in light mode; the ink-toned stars read as faint specks. */
+.stars { opacity: 0.16; }
+.sparkles { opacity: 0.22; color: var(--pink); }
+.orbit { opacity: 0.1; }
+.orbit-dot { opacity: 0.28; color: var(--pink); }
+.planet { opacity: 0.12; }
+.rocket { opacity: 0.14; color: var(--pink); }
+.constellation { opacity: 0.13; }
+
+/* A touch brighter over the dark canvas so the field still reads. */
+:host-context([data-theme='dark']) {
+  .stars { opacity: 0.28; color: hsl(210deg 40% 92%); }
+  .sparkles { opacity: 0.4; }
+  .orbit { opacity: 0.16; }
+  .orbit-dot { opacity: 0.4; }
+  .planet { opacity: 0.2; }
+  .rocket { opacity: 0.22; }
+  .constellation { opacity: 0.22; }
+}

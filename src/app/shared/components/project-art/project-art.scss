@@ -1,0 +1,4 @@
+/* The host must not introduce a layout box, or the inner <svg>'s height:100% has
+   no container to resolve against. display:contents lets the svg lay out as a
+   direct child of .proj-art / .feat-art / .mthumb (which size and center it). */
+:host { display: contents; }

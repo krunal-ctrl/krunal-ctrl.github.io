@@ -4,13 +4,15 @@ import { RouterLink } from '@angular/router';
 import { Reveal } from '../../shared/directives/reveal';
 import { YearsSincePipe } from '../../shared/pipes/years-since-pipe';
 import { Timeline } from '../../shared/components/timeline/timeline';
+import { Doodle } from '../../shared/components/doodle/doodle';
 import { CAREER_START_ISO } from '../../data/career';
 import { EXPERIENCE } from '../../data/experience.data';
 import { SKILLS } from '../../data/skills.data';
+import { SITE_LINKS } from '../../data/links.data';
 
 @Component({
   selector: 'app-about',
-  imports: [RouterLink, Reveal, YearsSincePipe, Timeline],
+  imports: [RouterLink, Reveal, YearsSincePipe, Timeline, Doodle],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })
@@ -20,6 +22,7 @@ export class About {
   readonly careerStartIso = CAREER_START_ISO;
   readonly experience = EXPERIENCE;
   readonly skills = SKILLS;
+  readonly links = SITE_LINKS;
 
   constructor() {
     this.meta.updateTag({

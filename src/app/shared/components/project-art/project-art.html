@@ -1,0 +1,46 @@
+@switch (artId) {
+  @case ('restaurant-pos') {
+    <svg viewBox="0 0 200 130" fill="none" aria-hidden="true">
+      <path d="M72 18 H128 V104 l-7 6 -7-6 -7 6 -7-6 -7 6 -7-6 -7 6 V18 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round"/>
+      <line x1="84" y1="38" x2="116" y2="38" stroke="var(--border)" stroke-width="4" stroke-linecap="round"/>
+      <line x1="84" y1="52" x2="116" y2="52" stroke="var(--border)" stroke-width="4" stroke-linecap="round"/>
+      <line x1="84" y1="66" x2="104" y2="66" stroke="var(--border)" stroke-width="4" stroke-linecap="round"/>
+      <rect x="84" y="80" width="32" height="9" rx="4.5" fill="var(--primary)"/>
+      <circle cx="150" cy="46" r="13" fill="var(--pink)"/>
+      <path d="M145 46 l4 4 6 -8" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  }
+  @case ('food-ordering') {
+    <svg viewBox="0 0 200 130" fill="none" aria-hidden="true">
+      <circle cx="104" cy="66" r="40" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+      <circle cx="104" cy="66" r="25" fill="none" stroke="var(--border)" stroke-width="3"/>
+      <circle cx="104" cy="66" r="9" fill="var(--pink)"/>
+      <g stroke="var(--ink)" stroke-width="3" stroke-linecap="round">
+        <line x1="40" y1="40" x2="40" y2="94"/>
+        <line x1="33" y1="40" x2="33" y2="55"/>
+        <line x1="47" y1="40" x2="47" y2="55"/>
+        <path d="M33 55 h14"/>
+        <path d="M168 40 C177 50 177 70 168 80 V94" fill="none"/>
+      </g>
+    </svg>
+  }
+  @case ('chat') {
+    <svg viewBox="0 0 200 130" fill="none" aria-hidden="true">
+      <path d="M40 30 h84 a12 12 0 0 1 12 12 v30 a12 12 0 0 1 -12 12 H78 l-20 16 v-16 H40 a12 12 0 0 1 -12 -12 V42 a12 12 0 0 1 12 -12 Z" fill="var(--primary)"/>
+      <circle cx="62" cy="57" r="4.5" fill="#fff"/>
+      <circle cx="82" cy="57" r="4.5" fill="#fff"/>
+      <circle cx="102" cy="57" r="4.5" fill="#fff"/>
+      <path d="M150 64 h26 a10 10 0 0 1 10 10 v18 a10 10 0 0 1 -10 10 h-10 l-12 10 v-10 h-4 a10 10 0 0 1 -10 -10 V74 a10 10 0 0 1 10 -10 Z" fill="var(--surface)" stroke="var(--ink)" stroke-width="3"/>
+    </svg>
+  }
+  @case ('airline') {
+    <svg viewBox="0 0 200 130" fill="none" aria-hidden="true">
+      <path d="M34 100 Q90 40 172 36" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 11"/>
+      <circle cx="34" cy="100" r="6" fill="var(--pink)"/>
+      <circle cx="172" cy="36" r="6" fill="var(--teal)"/>
+      <g transform="translate(86 52) rotate(-30)">
+        <path d="M0 0 L40 14 L0 28 L9 14 Z" fill="var(--primary)"/>
+      </g>
+    </svg>
+  }
+}

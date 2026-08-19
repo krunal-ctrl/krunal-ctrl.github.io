@@ -1,0 +1,5 @@
+:host { display: block; position: relative; }
+/* keep all page chrome above the fixed space backdrop (z-index: 0) */
+app-header,
+main,
+app-footer { position: relative; z-index: 1; }

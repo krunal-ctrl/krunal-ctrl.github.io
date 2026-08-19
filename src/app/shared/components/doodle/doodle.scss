@@ -1,0 +1,16 @@
+:host {
+  /* block, not inline-block: an inline-block sinks to the baseline of its
+     container's (often huge, inherited) line box, throwing off placement. */
+  display: block;
+  line-height: 0;
+  color: var(--pink); /* doodles use the hot-pink secondary accent by default; override via color */
+  pointer-events: none;
+}
+.doodle {
+  width: 100%;
+  height: 100%;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  overflow: visible;
+}

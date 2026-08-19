@@ -1,0 +1,78 @@
+<svg class="sky" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none">
+  <!-- star dots — spread so any vertical slice (incl. narrow mobile) stays varied -->
+  <g fill="currentColor" class="stars">
+    <!-- left band -->
+    <circle cx="90" cy="120" r="2.4"/><circle cx="220" cy="70" r="1.4"/><circle cx="150" cy="330" r="1.8"/>
+    <circle cx="300" cy="240" r="1.3"/><circle cx="60" cy="520" r="1.6"/><circle cx="200" cy="660" r="2.2"/>
+    <circle cx="80" cy="760" r="1.4"/><circle cx="360" cy="150" r="1.7"/><circle cx="120" cy="440" r="1.5"/>
+    <!-- center band (what mobile shows) -->
+    <circle cx="520" cy="95" r="1.6"/><circle cx="640" cy="150" r="2.4"/><circle cx="560" cy="300" r="1.5"/>
+    <circle cx="720" cy="105" r="1.3"/><circle cx="690" cy="420" r="2.2"/><circle cx="600" cy="560" r="1.6"/>
+    <circle cx="770" cy="650" r="1.8"/><circle cx="520" cy="770" r="1.4"/><circle cx="840" cy="200" r="2.3"/>
+    <circle cx="900" cy="500" r="1.5"/><circle cx="700" cy="830" r="2.1"/><circle cx="880" cy="360" r="1.4"/>
+    <circle cx="650" cy="710" r="1.3"/><circle cx="800" cy="780" r="1.6"/>
+    <!-- right band -->
+    <circle cx="1040" cy="80" r="2.6"/><circle cx="1180" cy="150" r="1.4"/><circle cx="1330" cy="90" r="1.8"/>
+    <circle cx="1250" cy="330" r="2.4"/><circle cx="1380" cy="440" r="1.5"/><circle cx="1120" cy="520" r="1.8"/>
+    <circle cx="1180" cy="800" r="2.3"/><circle cx="1340" cy="700" r="1.4"/><circle cx="1300" cy="600" r="1.7"/>
+    <circle cx="1060" cy="660" r="1.4"/><circle cx="990" cy="740" r="1.5"/>
+  </g>
+
+  <!-- little 4-point sparkle stars -->
+  <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round" class="sparkles">
+    <path d="M700 108v14M693 115h14"/>
+    <path d="M600 762v12M594 768h12"/>
+    <path d="M1230 200v12M1224 206h12"/>
+    <path d="M300 600v12M294 606h12"/>
+  </g>
+
+  <!-- large faint orbit through the centre -->
+  <ellipse class="orbit" cx="720" cy="780" rx="260" ry="92" transform="rotate(-13 720 780)"
+           stroke="currentColor" stroke-width="1.6"/>
+  <circle class="orbit-dot" cx="512" cy="742" r="4" fill="currentColor"/>
+  <!-- second orbit, top-right (desktop richness) -->
+  <ellipse class="orbit" cx="1230" cy="170" rx="170" ry="64" transform="rotate(-24 1230 170)"
+           stroke="currentColor" stroke-width="1.6"/>
+  <circle class="orbit-dot" cx="1065" cy="128" r="4" fill="currentColor"/>
+
+  <!-- ringed planet, centre -->
+  <g class="planet" stroke="currentColor" stroke-width="2" fill="none">
+    <ellipse cx="700" cy="220" rx="42" ry="14" transform="rotate(-20 700 220)"/>
+    <circle cx="700" cy="220" r="20"/>
+  </g>
+  <!-- ringed planet, left edge -->
+  <g class="planet" stroke="currentColor" stroke-width="2" fill="none">
+    <ellipse cx="230" cy="540" rx="46" ry="15" transform="rotate(-20 230 540)"/>
+    <circle cx="230" cy="540" r="22"/>
+  </g>
+  <!-- ringed planet, right edge (small) -->
+  <g class="planet" stroke="currentColor" stroke-width="1.8" fill="none">
+    <ellipse cx="1160" cy="410" rx="30" ry="10" transform="rotate(-18 1160 410)"/>
+    <circle cx="1160" cy="410" r="14"/>
+  </g>
+
+  <!-- rocket, centre -->
+  <g class="rocket" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"
+     transform="rotate(26 620 640)">
+    <path d="M620 606c9 6 15 18 15 30l-9 9h-12l-9-9c0-12 6-24 15-30z"/>
+    <circle cx="620" cy="630" r="5"/>
+    <path d="M611 642l-9 6 6 9 6-6M629 642l9 6-6 9-6-6"/>
+    <path d="M616 660l4 8 4-8"/>
+  </g>
+  <!-- rocket, right edge (desktop) -->
+  <g class="rocket" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"
+     transform="rotate(30 1330 500)">
+    <path d="M1330 472c7 5 12 14 12 24l-7 7h-10l-7-7c0-10 5-19 12-24z"/>
+    <circle cx="1330" cy="491" r="4"/>
+    <path d="M1323 500l-7 5 5 7 5-5M1337 500l7 5-5 7-5-5"/>
+  </g>
+
+  <!-- constellation, centre-left -->
+  <g class="constellation">
+    <path stroke="currentColor" stroke-width="1.2" d="M540 500l70 40 60-30 80 20"/>
+    <g fill="currentColor">
+      <circle cx="540" cy="500" r="2.6"/><circle cx="610" cy="540" r="2.6"/>
+      <circle cx="670" cy="510" r="2.6"/><circle cx="750" cy="530" r="2.6"/>
+    </g>
+  </g>
+</svg>
