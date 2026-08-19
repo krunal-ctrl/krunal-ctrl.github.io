@@ -9,8 +9,7 @@ export const NAV_LINKS: NavLink[] = [
   { path: '/', label: 'Home', exact: true },
   { path: '/about', label: 'About' },
   { path: '/projects', label: 'Projects' },
-  { path: '/dsa', label: 'DSA' },
-  { path: '/ground', label: 'Ground' },
+  { path: '/blog', label: 'Blog' },
 ];
 
 /** Single source of truth for external/contact links, referenced from header, footer, and page CTAs. */

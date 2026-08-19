@@ -13,6 +13,7 @@ export class Content {
   readonly topics = DATA.dsa.topics;
   readonly patterns = DATA.dsa.patterns;
   readonly groundPosts = DATA.ground.posts;
+  readonly journalPosts = DATA.journal.posts;
 
   problem(slug: string) {
     return this.problems.find((p) => p.slug === slug);
@@ -25,6 +26,9 @@ export class Content {
   }
   groundPost(slug: string) {
     return this.groundPosts.find((p) => p.slug === slug);
+  }
+  journalPost(slug: string) {
+    return this.journalPosts.find((p) => p.slug === slug);
   }
 
   problemsByTopic(slug: string) {

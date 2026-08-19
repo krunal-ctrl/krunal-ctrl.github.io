@@ -14,7 +14,7 @@ import { Reveal } from '../../shared/directives/reveal';
     @if (post(); as p) {
       <article class="wrap post">
         <div class="post-head reveal" appReveal>
-          <a class="post-back" routerLink="/ground">← Ground station</a>
+          <a class="post-back" routerLink="/blog/ground">← Ground station</a>
           @if (p.category) { <p class="eyebrow">{{ p.category }}</p> }
           <h1 class="post-title">{{ p.title }}</h1>
           <div class="meta-card">
@@ -27,7 +27,7 @@ import { Reveal } from '../../shared/directives/reveal';
         <div class="prose" appContentLinks [innerHTML]="p.html"></div>
       </article>
     } @else {
-      <section class="wrap post"><p>Post not found. <a routerLink="/ground">Back to ground station</a>.</p></section>
+      <section class="wrap post"><p>Post not found. <a routerLink="/blog/ground">Back to ground station</a>.</p></section>
     }
   `,
 })

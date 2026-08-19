@@ -12,6 +12,7 @@ import { Reveal } from '../../shared/directives/reveal';
     <section class="kh">
       <div class="wrap kh-grid kh-solo">
         <div class="kh-copy">
+          <a class="post-back" routerLink="/blog">← Blog</a>
           <p class="eyebrow kh-eyebrow">Ground Station · KS14NM</p>
           <h1 class="kh-title">
             Listening to space.
@@ -22,7 +23,7 @@ import { Reveal } from '../../shared/directives/reveal';
             RF notes, and (soon) a live view of what my antenna is hearing.
           </p>
           <div class="kh-cta">
-            <a class="btn btn-primary" routerLink="/ground/live">Live telemetry →</a>
+            <a class="btn btn-primary" routerLink="/blog/ground/live">Live telemetry →</a>
           </div>
         </div>
       </div>

@@ -3,6 +3,9 @@ import { Shell } from './layout/shell/shell';
 import { Home } from './pages/home/home';
 import { About } from './pages/about/about';
 import { Projects } from './pages/projects/projects';
+import { BlogHub } from './pages/blog/blog-hub';
+import { JournalIndex } from './pages/blog/journal-index';
+import { JournalPost } from './pages/blog/journal-post';
 import { DsaIndex } from './pages/dsa/dsa-index';
 import { DsaProblem } from './pages/dsa/dsa-problem';
 import { DsaTaxonomy } from './pages/dsa/dsa-taxonomy';
@@ -20,16 +23,23 @@ export const routes: Routes = [
       { path: 'about', component: About, title: 'About - Krunal Jethva' },
       { path: 'projects', component: Projects, title: 'Projects - Krunal Jethva' },
 
-      // DSA notes
-      { path: 'dsa', component: DsaIndex, title: 'DSA Notes - Krunal Jethva' },
-      { path: 'dsa/topics/:slug', component: DsaTaxonomy, data: { kind: 'topic' } },
-      { path: 'dsa/patterns/:slug', component: DsaTaxonomy, data: { kind: 'pattern' } },
-      { path: 'dsa/:slug', component: DsaProblem },
+      // Blog hub
+      { path: 'blog', component: BlogHub, title: 'Blog - Krunal Jethva' },
 
-      // Ground station
-      { path: 'ground', component: GroundIndex, title: 'KS14NM Ground Station - Krunal Jethva' },
-      { path: 'ground/live', component: GroundLive, title: 'Live Telemetry - KS14NM' },
-      { path: 'ground/:slug', component: GroundPost },
+      // DSA notes series
+      { path: 'blog/dsa', component: DsaIndex, title: 'DSA Notes - Krunal Jethva' },
+      { path: 'blog/dsa/topics/:slug', component: DsaTaxonomy, data: { kind: 'topic' } },
+      { path: 'blog/dsa/patterns/:slug', component: DsaTaxonomy, data: { kind: 'pattern' } },
+      { path: 'blog/dsa/:slug', component: DsaProblem },
+
+      // Ground station series
+      { path: 'blog/ground', component: GroundIndex, title: 'KS14NM Ground Station - Krunal Jethva' },
+      { path: 'blog/ground/live', component: GroundLive, title: 'Live Telemetry - KS14NM' },
+      { path: 'blog/ground/:slug', component: GroundPost },
+
+      // Journal series
+      { path: 'blog/journal', component: JournalIndex, title: 'Journal - Krunal Jethva' },
+      { path: 'blog/journal/:slug', component: JournalPost },
     ],
   },
   // A concrete path so the static prerenderer can generate it (wildcard routes aren't

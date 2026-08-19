@@ -12,6 +12,7 @@ import { Reveal } from '../../shared/directives/reveal';
     <section class="kh">
       <div class="wrap kh-grid kh-solo">
         <div class="kh-copy">
+          <a class="post-back" routerLink="/blog">← Blog</a>
           <p class="eyebrow kh-eyebrow">DSA Notes</p>
           <h1 class="kh-title">
             LeetCode, understood.
@@ -50,7 +51,7 @@ import { Reveal } from '../../shared/directives/reveal';
       </ul>
     </section>
 
-    <section class="wrap blog-section" style="padding-top: 0;">
+    <section class="wrap blog-section" style="padding-top: 40px;">
       <div class="section-head reveal" appReveal>
         <p class="eyebrow">Browse</p>
         <h2>By topic &amp; pattern.</h2>

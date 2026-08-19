@@ -20,7 +20,7 @@ import { Doodle } from '../../shared/components/doodle/doodle';
             passes overhead. Wiring it to the TinyGS feed is next on the bench.
           </p>
           <div class="kh-cta">
-            <a class="btn btn-ghost" routerLink="/ground">← Back to ground station</a>
+            <a class="btn btn-ghost" routerLink="/blog/ground">← Back to ground station</a>
           </div>
         </div>
       </div>

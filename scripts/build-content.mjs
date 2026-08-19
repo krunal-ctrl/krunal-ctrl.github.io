@@ -17,6 +17,7 @@ import hljs from 'highlight.js';
 const ROOT = process.cwd();
 const DSA_DIR = join(ROOT, 'content', 'dsa');
 const GROUND_DIR = join(ROOT, 'content', 'ground');
+const JOURNAL_DIR = join(ROOT, 'content', 'journal');
 const OUT_DIR = join(ROOT, 'src', 'app', 'content');
 const OUT_JSON = join(OUT_DIR, 'content.index.json');
 const PUB_EXCALI = join(ROOT, 'public', 'dsa', 'excalidraw');
@@ -99,13 +100,13 @@ for (const file of dsaFiles) {
 
   let kind, route, title;
   if (rel === 'index.md') {
-    kind = 'index'; route = '/dsa'; title = parsed.data.title || 'DSA Notes';
+    kind = 'index'; route = '/blog/dsa'; title = parsed.data.title || 'DSA Notes';
   } else if (folder === 'Topics') {
-    kind = 'topic'; title = parsed.data.title || titleFromFilename(base); route = `/dsa/topics/${slugify(base)}`;
+    kind = 'topic'; title = parsed.data.title || titleFromFilename(base); route = `/blog/dsa/topics/${slugify(base)}`;
   } else if (folder === 'Patterns') {
-    kind = 'pattern'; title = parsed.data.title || titleFromFilename(base); route = `/dsa/patterns/${slugify(base)}`;
+    kind = 'pattern'; title = parsed.data.title || titleFromFilename(base); route = `/blog/dsa/patterns/${slugify(base)}`;
   } else if (folder === 'Problems') {
-    kind = 'problem'; title = parsed.data.title || titleFromFilename(base); route = `/dsa/${slugify(title)}`;
+    kind = 'problem'; title = parsed.data.title || titleFromFilename(base); route = `/blog/dsa/${slugify(title)}`;
   } else {
     continue; // Daily/etc.
   }
@@ -155,8 +156,8 @@ function transformObsidian(body) {
   });
   // inline hashtags: link topic/pattern, plain-text difficulty/status
   out = out.replace(/#(pattern|topic|difficulty|status)\/([\w-]+)/g, (full, group, val) => {
-    if (group === 'topic') return `[${val.replace(/-/g, ' ')}](/dsa/topics/${slugify(val)})`;
-    if (group === 'pattern') return `[${val.replace(/-/g, ' ')}](/dsa/patterns/${slugify(val)})`;
+    if (group === 'topic') return `[${val.replace(/-/g, ' ')}](/blog/dsa/topics/${slugify(val)})`;
+    if (group === 'pattern') return `[${val.replace(/-/g, ' ')}](/blog/dsa/patterns/${slugify(val)})`;
     return val;
   });
   return out;
@@ -193,7 +194,7 @@ if (existsSync(GROUND_DIR)) {
     let html = md.render(parsed.content).replace(/\/assets\/img\//g, '/ground/img/');
     const cover = (d.cover_image || '').replace(/^\/assets\/img\//, '/ground/img/').replace(/^\//, '');
     ground.posts.push({
-      kind: 'post', slug, route: `/ground/${slug}`, title: d.title || titleFromFilename(slug),
+      kind: 'post', slug, route: `/blog/ground/${slug}`, title: d.title || titleFromFilename(slug),
       date, category: d.category || '', frequency: d.frequency || '', norad_id: d.norad_id || '',
       experiment_id: d.experiment_id || '', cover, excerpt: d.excerpt || excerptFrom(html),
       keywords: d.keywords || '', html,
@@ -202,12 +203,35 @@ if (existsSync(GROUND_DIR)) {
   ground.posts.sort((a, b) => (a.date < b.date ? 1 : -1)); // newest first
 }
 
+// ---------- journal (daily / standalone posts) ----------
+const journal = { posts: [] };
+if (existsSync(JOURNAL_DIR)) {
+  for (const name of readdirSync(JOURNAL_DIR)) {
+    if (!name.endsWith('.md')) continue;
+    const raw = readFileSync(join(JOURNAL_DIR, name), 'utf8');
+    const parsed = matter(raw);
+    const d = parsed.data;
+    const dateMatch = name.match(/^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$/);
+    const slug = dateMatch ? dateMatch[4] : slugify(basename(name, '.md'));
+    const date = dateMatch
+      ? `${dateMatch[1]}-${dateMatch[2]}-${dateMatch[3]}`
+      : (d.date ? String(d.date).slice(0, 10) : '');
+    const html = md.render(transformObsidian(parsed.content));
+    journal.posts.push({
+      kind: 'post', slug, route: `/blog/journal/${slug}`, title: d.title || titleFromFilename(slug),
+      date, series: d.series || '', tags: Array.isArray(d.tags) ? d.tags : [],
+      excerpt: d.excerpt || excerptFrom(html), html,
+    });
+  }
+  journal.posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
 // ---------- write ----------
 mkdirSync(OUT_DIR, { recursive: true });
-const index = { dsa, ground };
+const index = { dsa, ground, journal };
 writeFileSync(OUT_JSON, JSON.stringify(index, null, 2));
 
 console.log(
   `content: ${dsa.problems.length} problems, ${dsa.topics.length} topics, ${dsa.patterns.length} patterns, ` +
-  `${ground.posts.length} ground posts -> ${OUT_JSON.slice(ROOT.length + 1)}`,
+  `${ground.posts.length} ground posts, ${journal.posts.length} journal posts -> ${OUT_JSON.slice(ROOT.length + 1)}`,
 );

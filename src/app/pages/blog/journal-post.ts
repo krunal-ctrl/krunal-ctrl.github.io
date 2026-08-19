@@ -6,35 +6,29 @@ import { map } from 'rxjs';
 import { Content } from '../../content/content';
 import { ContentLinks } from '../../shared/directives/content-links';
 import { Reveal } from '../../shared/directives/reveal';
-import { slugify } from '../../shared/util/slug';
 
 @Component({
-  selector: 'app-dsa-problem',
+  selector: 'app-journal-post',
   imports: [RouterLink, ContentLinks, Reveal],
   template: `
-    @if (problem(); as p) {
+    @if (post(); as p) {
       <article class="wrap post">
         <div class="post-head reveal" appReveal>
-          <a class="post-back" routerLink="/blog/dsa">← DSA notes</a>
-          <h1 class="post-title">{{ p.title }}</h1>
+          <a class="post-back" routerLink="/blog/journal">← Journal</a>
           <div class="post-meta">
-            @if (p.difficulty) {
-              <span class="difficulty" [class]="'d-' + p.difficulty.toLowerCase()">{{ p.difficulty }}</span>
-            }
-            @for (t of p.pattern; track t) { <a class="chip" [routerLink]="patternRoute(t)">{{ t }}</a> }
-            @for (t of p.topic; track t) { <a class="chip chip-topic" [routerLink]="topicRoute(t)">{{ t }}</a> }
+            @if (p.series) { <span class="chip chip-sm">{{ p.series }}</span> }
+            @if (p.date) { <span class="post-date">{{ p.date }}</span> }
           </div>
+          <h1 class="post-title">{{ p.title }}</h1>
         </div>
         <div class="prose" appContentLinks [innerHTML]="p.html"></div>
       </article>
     } @else {
-      <section class="wrap post">
-        <p>Problem not found. <a routerLink="/blog/dsa">Back to DSA notes</a>.</p>
-      </section>
+      <section class="wrap post"><p>Entry not found. <a routerLink="/blog/journal">Back to journal</a>.</p></section>
     }
   `,
 })
-export class DsaProblem {
+export class JournalPost {
   private readonly content = inject(Content);
   private readonly route = inject(ActivatedRoute);
   private readonly title = inject(Title);
@@ -43,22 +37,15 @@ export class DsaProblem {
   private readonly slug = toSignal(this.route.paramMap.pipe(map((p) => p.get('slug') ?? '')), {
     requireSync: true,
   });
-  readonly problem = computed(() => this.content.problem(this.slug()));
+  readonly post = computed(() => this.content.journalPost(this.slug()));
 
   constructor() {
     effect(() => {
-      const p = this.problem();
+      const p = this.post();
       if (p) {
-        this.title.setTitle(`${p.title} · DSA Notes - Krunal Jethva`);
+        this.title.setTitle(`${p.title} · Journal - Krunal Jethva`);
         this.meta.updateTag({ name: 'description', content: p.excerpt });
       }
     });
-  }
-
-  patternRoute(name: string) {
-    return `/blog/dsa/patterns/${slugify(name)}`;
-  }
-  topicRoute(name: string) {
-    return `/blog/dsa/topics/${slugify(name)}`;
   }
 }

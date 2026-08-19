@@ -15,7 +15,7 @@ import { Reveal } from '../../shared/directives/reveal';
     @if (note(); as n) {
       <article class="wrap post">
         <div class="post-head reveal" appReveal>
-          <a class="post-back" routerLink="/dsa">← DSA notes</a>
+          <a class="post-back" routerLink="/blog/dsa">← DSA notes</a>
           <p class="eyebrow">{{ kind() === 'topic' ? 'Topic' : 'Pattern' }}</p>
           <h1 class="post-title">{{ n.title }}</h1>
         </div>
@@ -42,7 +42,7 @@ import { Reveal } from '../../shared/directives/reveal';
         </div>
       </article>
     } @else {
-      <section class="wrap post"><p>Not found. <a routerLink="/dsa">Back to DSA notes</a>.</p></section>
+      <section class="wrap post"><p>Not found. <a routerLink="/blog/dsa">Back to DSA notes</a>.</p></section>
     }
   `,
 })

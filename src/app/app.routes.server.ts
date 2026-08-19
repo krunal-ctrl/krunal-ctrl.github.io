@@ -7,24 +7,29 @@ const DATA = indexData as unknown as ContentIndex;
 /** Feed the static prerenderer the slug lists for the parameterized blog routes. */
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'dsa/topics/:slug',
+    path: 'blog/dsa/topics/:slug',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => DATA.dsa.topics.map((t) => ({ slug: t.slug })),
   },
   {
-    path: 'dsa/patterns/:slug',
+    path: 'blog/dsa/patterns/:slug',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => DATA.dsa.patterns.map((p) => ({ slug: p.slug })),
   },
   {
-    path: 'dsa/:slug',
+    path: 'blog/dsa/:slug',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => DATA.dsa.problems.map((p) => ({ slug: p.slug })),
   },
   {
-    path: 'ground/:slug',
+    path: 'blog/ground/:slug',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => DATA.ground.posts.map((p) => ({ slug: p.slug })),
+  },
+  {
+    path: 'blog/journal/:slug',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => DATA.journal.posts.map((p) => ({ slug: p.slug })),
   },
   { path: '**', renderMode: RenderMode.Prerender },
 ];

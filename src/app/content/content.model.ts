@@ -36,6 +36,18 @@ export interface GroundPost {
   keywords: string;
 }
 
+export interface JournalPost {
+  kind: 'post';
+  slug: string;
+  route: string;
+  title: string;
+  html: string;
+  excerpt: string;
+  date: string;
+  series: string;
+  tags: string[];
+}
+
 export interface ContentIndex {
   dsa: {
     index: DsaNote | null;
@@ -44,4 +56,5 @@ export interface ContentIndex {
     patterns: DsaNote[];
   };
   ground: { posts: GroundPost[] };
+  journal: { posts: JournalPost[] };
 }
