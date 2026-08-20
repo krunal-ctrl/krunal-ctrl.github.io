@@ -1,0 +1,231 @@
+{
+  "main": {
+    "id": "7fb178f50d871c05",
+    "type": "split",
+    "children": [
+      {
+        "id": "0a9e07157926e0ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c12aaef317ad7c3f",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e3b745d367c42b0c",
+    "type": "split",
+    "children": [
+      {
+        "id": "ea101ba6421c001e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fffd4da1eb82b385",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d16b5cacd2ae7735",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#pattern/Two-Pointer",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "5a979cb983eef4b8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 403.5
+  },
+  "right": {
+    "id": "57d0c2a4ca2dd288",
+    "type": "split",
+    "children": [
+      {
+        "id": "6ffb3c3c7f3c5d7b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9d1799f568959a85",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "8b40572f94cf05df",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "8389c5a134b97999",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "5d11997e4dd8d7bf",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "a823c749b6c883af",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "c12aaef317ad7c3f",
+  "lastOpenFiles": [
+    "content/Excalidraw/ContainsDuplicate.excalidraw.md",
+    "content/Excalidraw/TwoSum.excalidraw.md",
+    "public/index-og-image.webp",
+    "public/Topics/Trees-og-image.webp",
+    "public/Topics/Strings-og-image.webp",
+    "public/Topics/LinkedLists-og-image.webp",
+    "public/Topics/Heaps-og-image.webp",
+    "public/Topics/Greedy-og-image.webp",
+    "public/Topics/Graphs-og-image.webp",
+    "public/Topics/DP-og-image.webp",
+    "public/Topics/Bit-Manipulation-og-image.webp",
+    "public/Topics/Backtracking-og-image.webp",
+    "public/tags/index.html",
+    "public/index.html",
+    "public/Topics/Trees.html",
+    "public/Topics/Strings.html",
+    "public/Topics/LinkedLists.html",
+    "public/Topics/Heaps.html",
+    "public/Topics/Greedy.html",
+    "public/Topics/Graphs.html",
+    "public/Topics/DP.html",
+    "public/Topics/Bit-Manipulation.html",
+    "node_modules/@nodelib/fs.scandir/README.md",
+    "node_modules/rehype-citation/README.md",
+    "node_modules/speech-rule-engine/lib/README.md",
+    "node_modules/@bufbuild/protobuf/README.md",
+    "node_modules/@esbuild/win32-x64/README.md",
+    "node_modules/resolve/SECURITY.md",
+    "node_modules/@shuding/opentype.js/RELEASES.md",
+    "node_modules/@citation-js/core/README.md",
+    "node_modules/satori/README.md",
+    "node_modules/mj-context-menu/README.md",
+    "node_modules/d3-format/README.md",
+    "node_modules/prettier/THIRD-PARTY-NOTICES.md",
+    "node_modules/d3-geo/README.md",
+    "node_modules/d3-array/README.md",
+    "node_modules/@citation-js/plugin-bibtex/LICENSE.md",
+    "node_modules/mdast-util-to-markdown/readme.md",
+    "node_modules/micromark-core-commonmark/readme.md",
+    "node_modules/css-to-react-native/README.md",
+    "node_modules/css-to-react-native/LICENSE.md",
+    "node_modules/gray-matter/node_modules/js-yaml/CHANGELOG.md",
+    "node_modules/d3-hierarchy/README.md",
+    "node_modules/hast-util-to-html/node_modules/property-information/readme.md",
+    "node_modules/hast-util-to-jsx-runtime/node_modules/property-information/readme.md",
+    "node_modules/mdast-util-to-hast/readme.md",
+    "Untitled.canvas",
+    "Untitled 1.canvas"
+  ]
+}

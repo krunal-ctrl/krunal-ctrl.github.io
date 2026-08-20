@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .ring { fill: #ffffff; }
+    .mark { stroke: #4f39f6; }
+    .dot { fill: #14b8a6; }
+    @media (prefers-color-scheme: dark) {
+      .ring { fill: #17191f; }
+      .mark { stroke: #8d7bff; }
+      .dot { fill: #2fe3c4; }
+    }
+  </style>
+  <circle class="ring" cx="16" cy="16" r="16"/>
+  <g class="mark" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 23 L15 16 L22 23 Z"/>
+    <line x1="15" y1="16" x2="15" y2="9"/>
+    <path d="M11.5 9a5 5 0 0 1 7 0" stroke-width="1.6"/>
+    <path d="M9.8 6.8a8 8 0 0 1 10.4 0" stroke-width="1.6"/>
+  </g>
+  <circle class="dot" cx="23.5" cy="8.5" r="2"/>
+</svg>
