@@ -4,20 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "0a9e07157926e0ca",
+        "id": "13f2e6630144ca2f",
         "type": "tabs",
         "children": [
           {
-            "id": "c12aaef317ad7c3f",
+            "id": "b3e5c71584349796",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Problems/LC-4-GroupAnagrams.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "LC-4-GroupAnagrams"
+            }
+          },
+          {
+            "id": "1640eade47fca7a7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "index.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "index"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -37,7 +56,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -49,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#pattern/Two-Pointer",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -177,8 +198,20 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "c12aaef317ad7c3f",
+  "active": "1640eade47fca7a7",
   "lastOpenFiles": [
+    "Problems/LC-5-TopKFrequentElements.md",
+    "Excalidraw/TopKFrequentElement.excalidraw.dark.svg",
+    "Excalidraw/TopKFrequentElement.excalidraw.light.svg",
+    "Excalidraw/TopKFrequentElement.excalidraw.md",
+    "Excalidraw/TwoSum.excalidraw.dark.svg",
+    "Excalidraw/TwoSum.excalidraw.md",
+    "Excalidraw/ContainsDuplicate.excalidraw.md",
+    "Excalidraw/GroupAnagrams.excalidraw.md",
+    "Problems/LC-4-GroupAnagrams.md",
+    "Untitled.canvas",
+    "Problems/LC-1-TwoSum.md",
+    "Patterns/Backtracking.md",
     "content/Excalidraw/ContainsDuplicate.excalidraw.md",
     "content/Excalidraw/TwoSum.excalidraw.md",
     "public/index-og-image.webp",
@@ -188,9 +221,6 @@
     "public/Topics/Heaps-og-image.webp",
     "public/Topics/Greedy-og-image.webp",
     "public/Topics/Graphs-og-image.webp",
-    "public/Topics/DP-og-image.webp",
-    "public/Topics/Bit-Manipulation-og-image.webp",
-    "public/Topics/Backtracking-og-image.webp",
     "public/tags/index.html",
     "public/index.html",
     "public/Topics/Trees.html",
@@ -216,16 +246,6 @@
     "node_modules/d3-geo/README.md",
     "node_modules/d3-array/README.md",
     "node_modules/@citation-js/plugin-bibtex/LICENSE.md",
-    "node_modules/mdast-util-to-markdown/readme.md",
-    "node_modules/micromark-core-commonmark/readme.md",
-    "node_modules/css-to-react-native/README.md",
-    "node_modules/css-to-react-native/LICENSE.md",
-    "node_modules/gray-matter/node_modules/js-yaml/CHANGELOG.md",
-    "node_modules/d3-hierarchy/README.md",
-    "node_modules/hast-util-to-html/node_modules/property-information/readme.md",
-    "node_modules/hast-util-to-jsx-runtime/node_modules/property-information/readme.md",
-    "node_modules/mdast-util-to-hast/readme.md",
-    "Untitled.canvas",
     "Untitled 1.canvas"
   ]
 }
