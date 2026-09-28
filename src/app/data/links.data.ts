@@ -18,5 +18,5 @@ export const SITE_LINKS = {
   linkedin: 'https://www.linkedin.com/in/krunal-jethva/',
   twitter: 'https://twitter.com/jethva_krunal',
   email: 'krunaljethva90@gmail.com',
-  resume: 'resume.pdf',
+  resume: 'Krunal_Jethva_resume.pdf',
 } as const;
